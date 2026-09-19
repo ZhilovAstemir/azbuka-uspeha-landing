@@ -1,4 +1,4 @@
-import { reviews } from "@/lib/content";
+import { reviews, site } from "@/lib/content";
 import { SectionHead } from "../SectionHead";
 import { Reveal } from "../Reveal";
 
@@ -6,23 +6,23 @@ export function Reviews() {
   return (
     <section id="reviews" className="py-20 sm:py-28 bg-lav">
       <div className="container-x">
-        <SectionHead eyebrow="Отзывы родителей" title="Нам доверяют самое дорогое" />
-        <div className="grid gap-6 md:grid-cols-3">
+        <SectionHead
+          eyebrow="Что о нас говорят"
+          title="Тёплые слова из комментариев"
+          sub={`Реальные отзывы подписчиков под постами ${site.instagramHandle}`}
+        />
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {reviews.map((r, i) => (
-            <Reveal key={i} delay={i * 0.08}>
-              <figure className="card h-full p-7 flex flex-col">
-                <div className="text-sun text-xl tracking-widest mb-3">★★★★★</div>
-                <blockquote className="text-ink font-semibold leading-relaxed flex-1">
-                  «{r.text}»
-                </blockquote>
-                <figcaption className="mt-5 flex items-center gap-3">
-                  <span className="grid place-items-center w-11 h-11 rounded-full bg-brand text-white font-display font-bold">
-                    {r.avatar}
+            <Reveal key={r.handle} delay={(i % 3) * 0.07}>
+              <figure className="card h-full p-6 flex flex-col">
+                <blockquote className="text-ink font-bold text-lg leading-relaxed flex-1">{r.text}</blockquote>
+                <figcaption className="mt-4 flex items-center gap-3">
+                  <span className="grid place-items-center w-10 h-10 rounded-full bg-brand text-white font-display font-bold">
+                    {r.handle.replace("@", "").charAt(0).toUpperCase()}
                   </span>
-                  <span className="font-bold text-ink">
-                    {r.name}
-                    <span className="block text-sm font-semibold text-ink-soft">{r.child}</span>
-                  </span>
+                  <a href={site.socials.instagram} target="_blank" rel="noopener noreferrer" className="font-bold text-ink-soft hover:text-brand">
+                    {r.handle}
+                  </a>
                 </figcaption>
               </figure>
             </Reveal>

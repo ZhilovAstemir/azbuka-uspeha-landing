@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-/** Плавающая кнопка «Записаться», появляется после прокрутки первого экрана. */
+/** Плавающая кнопка записи, появляется после прокрутки первого экрана. */
 export function FloatingCta() {
   const [show, setShow] = useState(false);
   useEffect(() => {
@@ -18,7 +18,7 @@ export function FloatingCta() {
         show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
       }`}
     >
-      🎁 Записаться
+      🎒 Записаться
     </a>
   );
 }

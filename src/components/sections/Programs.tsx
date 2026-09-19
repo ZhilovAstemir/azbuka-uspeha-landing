@@ -1,4 +1,5 @@
-import { programs } from "@/lib/content";
+import Image from "next/image";
+import { programs, prodlenka, site } from "@/lib/content";
 import { SectionHead } from "../SectionHead";
 import { Reveal } from "../Reveal";
 import { TiltCard } from "../TiltCard";
@@ -9,67 +10,67 @@ export function Programs() {
       <div className="container-x">
         <SectionHead
           eyebrow="Наши направления"
-          title="Программы для любого возраста и интереса"
-          sub="Очные занятия в уютном центре — от первых шагов малыша до уверенной подготовки к школе и увлечений будущего."
+          title="Программы для детей от 3 до 17 лет"
+          sub="Очные занятия в центре Нальчика — от подготовки к школе до английского для старшеклассников."
         />
 
         {/* Акцент: продлёнка */}
         <Reveal>
-          <div className="card overflow-hidden mb-8 grid md:grid-cols-[1.4fr_1fr]">
+          <div className="card overflow-hidden mb-8 grid md:grid-cols-[1.35fr_1fr]">
             <div className="p-8 sm:p-10">
-              <span className="eyebrow">Хит для школьников</span>
+              <span className="eyebrow">🔥 {site.promo.title} {site.promo.text}</span>
               <h3 className="mt-3 font-display font-bold text-2xl sm:text-3xl text-ink">
-                Продлёнка полного дня 🎒
+                {prodlenka.title} 🎒
               </h3>
-              <p className="mt-3 text-ink-soft font-semibold text-lg">
-                Встретим ребёнка после школы, вкусно накормим, поможем с домашними заданиями
-                и займём развивающими кружками. Вы спокойны — ребёнок под присмотром и при деле.
-              </p>
+              <p className="mt-3 text-ink-soft font-semibold text-lg">{prodlenka.lead}</p>
               <ul className="mt-5 grid sm:grid-cols-2 gap-2 text-ink font-semibold">
-                <li>🍲 Горячее питание</li>
-                <li>📖 Помощь с уроками</li>
-                <li>🎨 Кружки и прогулки</li>
-                <li>🕕 Гибкое время до вечера</li>
+                {prodlenka.includes.map((i) => (
+                  <li key={i}>{i}</li>
+                ))}
               </ul>
-              <a href="#contacts" className="btn btn-primary mt-7">Записаться на продлёнку</a>
+              <div className="mt-7 flex flex-wrap gap-3 items-center">
+                <a href="#contacts" className="btn btn-primary">Забронировать место</a>
+                <span className="text-sm font-semibold text-ink-soft">
+                  или напишите «{site.codeWord}» в Direct{" "}
+                  <a href={site.socials.instagram} target="_blank" rel="noopener noreferrer" className="text-brand hover:underline">
+                    {site.instagramHandle}
+                  </a>
+                </span>
+              </div>
             </div>
-            <div
-              className="min-h-[220px] grid place-items-center text-[7rem]"
-              style={{ background: "linear-gradient(135deg,var(--color-brand),var(--color-pink))" }}
-            >
-              🎒
+            <div className="relative min-h-[260px] md:min-h-full">
+              <Image src={prodlenka.image} alt="Занятие на продлёнке в «Азбуке успеха»" fill className="object-cover" sizes="(max-width: 768px) 100vw, 40vw" />
             </div>
           </div>
         </Reveal>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {programs.map((p, i) => (
-            <Reveal key={p.title} delay={(i % 3) * 0.06}>
-              <TiltCard className="card h-full p-7 relative overflow-hidden">
-                <span
-                  className="absolute -right-6 -top-6 w-24 h-24 rounded-full opacity-15"
-                  style={{ background: p.color }}
-                />
-                <div className="text-5xl mb-4">{p.emoji}</div>
-                <h3 className="font-display font-bold text-xl text-ink mb-2">{p.title}</h3>
-                <p className="text-ink-soft font-medium leading-relaxed mb-4">{p.text}</p>
-                <span
-                  className="inline-block text-sm font-extrabold px-3 py-1.5 rounded-full text-white"
-                  style={{ background: p.color }}
-                >
-                  {p.age}
-                </span>
+            <Reveal key={p.title} delay={(i % 4) * 0.06}>
+              <TiltCard className="card h-full overflow-hidden relative flex flex-col">
+                {p.image ? (
+                  <div className="relative h-40">
+                    <Image src={p.image} alt={p.title} fill className="object-cover" sizes="(max-width: 640px) 100vw, 25vw" />
+                  </div>
+                ) : (
+                  <div className="h-40 grid place-items-center text-6xl" style={{ background: `color-mix(in srgb, ${p.color} 14%, white)` }}>
+                    {p.emoji}
+                  </div>
+                )}
+                <div className="p-6 flex-1 flex flex-col">
+                  <h3 className="font-display font-bold text-lg text-ink mb-2">{p.title}</h3>
+                  <p className="text-ink-soft font-medium leading-relaxed mb-4 flex-1">{p.text}</p>
+                  <span className="inline-block self-start text-xs font-extrabold px-3 py-1.5 rounded-full text-white" style={{ background: p.color }}>
+                    {p.age}
+                  </span>
+                </div>
               </TiltCard>
             </Reveal>
           ))}
         </div>
 
         <Reveal className="text-center mt-12">
-          <p className="text-ink-soft font-semibold text-lg mb-5">
-            А также: <b className="text-ink">музыка и вокал</b>, <b className="text-ink">нейрогимнастика</b> и{" "}
-            <b className="text-ink">группа неполного дня (мини-сад)</b>.
-          </p>
-          <a href="#contacts" className="btn btn-primary btn-lg">Подобрать программу ребёнку</a>
+          <a href="#contacts" className="btn btn-primary btn-lg">Подобрать направление ребёнку</a>
         </Reveal>
       </div>
     </section>

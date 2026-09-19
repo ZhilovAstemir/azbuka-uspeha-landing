@@ -3,8 +3,8 @@
 import { useState } from "react";
 
 const programs = [
-  "Раннее развитие", "Подготовка к школе", "Английский язык", "Ментальная арифметика",
-  "Логопед", "Творчество", "Робототехника", "Продлёнка", "Другое / не знаю",
+  "Продлёнка", "Подготовка к школе", "Английский для младших", "Английский для старшеклассников",
+  "Шахматы", "Скорочтение", "Каллиграфия", "Театр и творчество", "Нейроупражнения", "Ещё не решили",
 ];
 
 export function LeadForm() {
@@ -46,7 +46,7 @@ export function LeadForm() {
       <div className="card p-8 text-center">
         <div className="text-6xl mb-4">🎉</div>
         <h3 className="font-display font-bold text-2xl text-ink mb-2">Спасибо! Заявка отправлена</h3>
-        <p className="text-ink-soft font-semibold">Мы перезвоним вам в течение 15 минут в рабочее время.</p>
+        <p className="text-ink-soft font-semibold">Мы перезвоним, ответим на вопросы и подберём удобное расписание.</p>
         <button className="btn btn-ghost mt-6" onClick={() => setSent(false)}>
           Отправить ещё одну
         </button>
@@ -56,7 +56,7 @@ export function LeadForm() {
 
   return (
     <form onSubmit={onSubmit} className="card p-7 sm:p-8" noValidate>
-      <h3 className="font-display font-bold text-2xl text-ink mb-6">Записаться на пробное занятие</h3>
+      <h3 className="font-display font-bold text-2xl text-ink mb-6">Оставить заявку</h3>
 
       <label className="block mb-4">
         <span className="block text-sm font-bold text-ink-soft mb-1.5">Ваше имя</span>
@@ -96,7 +96,7 @@ export function LeadForm() {
       </label>
 
       <button type="submit" disabled={loading} className="btn btn-primary btn-lg btn-block disabled:opacity-70">
-        {loading ? "Отправляем…" : "Записаться бесплатно"}
+        {loading ? "Отправляем…" : "Записаться"}
       </button>
       <p className="text-xs text-ink-soft mt-4 text-center font-medium">
         Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных.

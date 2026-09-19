@@ -110,7 +110,7 @@ export function Header() {
             onClick={() => setOpen(false)}
             className="btn btn-primary btn-lg btn-block mt-4"
           >
-            Записаться на пробное
+            Записаться на продлёнку
           </a>
         </nav>
       </div>

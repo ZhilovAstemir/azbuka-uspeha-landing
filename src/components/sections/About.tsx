@@ -1,27 +1,26 @@
-import { stats } from "@/lib/content";
+import Image from "next/image";
+import { site, facts } from "@/lib/content";
 import { SectionHead } from "../SectionHead";
 import { Reveal } from "../Reveal";
-import { Counter } from "../Counter";
 
 export function About() {
   return (
     <section id="about" className="py-20 sm:py-28">
       <div className="container-x grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        {/* Медиа-коллаж (замените эмодзи на реальные фото центра) */}
+        {/* Фото-коллаж из реальных снимков центра */}
         <Reveal className="order-2 lg:order-1">
           <div className="relative aspect-[4/3] max-w-lg mx-auto">
-            <div className="absolute inset-0 rounded-[2rem] grid place-items-center text-[7rem] shadow-[var(--shadow-soft)] animate-floaty"
-              style={{ background: "linear-gradient(135deg,#ffe3ef,#fff2d6)" }}>
-              🌈
+            <div className="absolute inset-0 rounded-[2rem] overflow-hidden shadow-[var(--shadow-soft)]">
+              <Image src="/images/post2-podgotovka.jpg" alt="Ребёнок играет с кубиками-буквами на занятии" fill className="object-cover" sizes="(max-width: 1024px) 90vw, 40vw" />
             </div>
-            <div className="absolute -right-4 -top-6 w-28 h-28 rounded-3xl grid place-items-center text-4xl shadow-[var(--shadow-soft)] bg-white animate-floaty [animation-delay:-1.5s]">
-              🚀
+            <div className="absolute -right-4 -top-6 w-32 h-40 rounded-3xl overflow-hidden shadow-[var(--shadow-soft)] ring-4 ring-cream animate-floaty [animation-delay:-1.5s]">
+              <Image src="/images/post8-den-znaniy.jpg" alt="Педагог с букварём" fill className="object-cover" sizes="128px" />
             </div>
-            <div className="absolute -left-5 bottom-8 w-24 h-24 rounded-3xl grid place-items-center text-4xl shadow-[var(--shadow-soft)] bg-white animate-floaty [animation-delay:-3s]">
-              🎈
+            <div className="absolute -left-5 bottom-8 w-28 h-28 rounded-3xl overflow-hidden shadow-[var(--shadow-soft)] ring-4 ring-cream animate-floaty [animation-delay:-3s]">
+              <Image src="/images/post9-prodlenka.jpg" alt="Развивающая настольная игра" fill className="object-cover" sizes="112px" />
             </div>
             <div className="absolute right-6 -bottom-5 px-4 py-2 rounded-full bg-brand text-white font-extrabold shadow-[var(--shadow-brand)]">
-              С заботой ❤️
+              {site.slogan}
             </div>
           </div>
         </Reveal>
@@ -29,28 +28,26 @@ export function About() {
         <div className="order-1 lg:order-2">
           <SectionHead
             center={false}
-            eyebrow="О центре «Азбука Успеха»"
-            title={<>Место, где детство становится <span className="grad-text">стартом в успех</span></>}
+            eyebrow={`О центре «${site.name}»`}
+            title={<>Знания сегодня — <span className="grad-text">успех завтра</span></>}
           />
           <div className="-mt-6">
             <p className="text-ink-soft font-semibold text-lg leading-relaxed">
-              Мы верим: каждый ребёнок талантлив. Наша задача — раскрыть эти таланты, привить любовь
-              к знаниям и подарить уверенность в себе. Мы создали живое офлайн-пространство, куда дети
-              бегут с радостью, а родители спокойны за результат.
+              Мы помогаем детям от 3 до 17 лет спокойно и продуктивно учиться: выполнять домашние
+              задания под присмотром педагогов, разбираться с непонятными темами, закреплять
+              пройденное и открывать новое — от английского и шахмат до театра и нейроупражнений.
             </p>
             <ul className="mt-6 space-y-2 font-semibold text-ink">
-              <li>✅ Авторские методики и современные материалы</li>
-              <li>✅ Тёплое и внимательное отношение к каждому</li>
-              <li>✅ Прозрачный прогресс и обратная связь родителям</li>
+              <li>✅ Комфортная и безопасная атмосфера</li>
+              <li>✅ Внимание к каждому ребёнку и забота о его самочувствии</li>
+              <li>✅ Родители спокойны, а дети занимаются, общаются и отдыхают с пользой</li>
             </ul>
 
-            <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-6">
-              {stats.map((s) => (
-                <div key={s.label}>
-                  <div className="font-display font-bold text-3xl sm:text-4xl grad-text">
-                    <Counter value={s.value} suffix={s.suffix} />
-                  </div>
-                  <div className="text-sm font-bold text-ink-soft mt-1">{s.label}</div>
+            <div className="mt-10 grid grid-cols-3 gap-6">
+              {facts.map((f) => (
+                <div key={f.label}>
+                  <div className="font-display font-bold text-3xl sm:text-4xl grad-text">{f.value}</div>
+                  <div className="text-sm font-bold text-ink-soft mt-1">{f.label}</div>
                 </div>
               ))}
             </div>

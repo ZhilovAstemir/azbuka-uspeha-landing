@@ -1,4 +1,4 @@
-import { site } from "@/lib/content";
+import { site, facts } from "@/lib/content";
 import Hero3D from "@/components/Hero3D";
 
 export function Hero() {
@@ -13,36 +13,38 @@ export function Hero() {
         {/* Левая колонка — контент */}
         <div className="max-w-xl">
           <span className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur px-4 py-2 font-extrabold text-sm shadow-[var(--shadow-soft)]">
-            ✨ Набор в новые группы открыт
+            🔥 {site.promo.title} {site.promo.text}
           </span>
 
-          <h1 className="mt-5 font-display font-bold text-[clamp(2.3rem,5.5vw,4.2rem)] leading-[1.05] text-ink">
-            Растим <span className="grad-text">умных</span>, уверенных и{" "}
-            <span className="grad-text-2">счастливых</span> детей
+          <h1 className="mt-5 font-display font-bold text-[clamp(2.2rem,5.2vw,4rem)] leading-[1.05] text-ink">
+            От первых знаний —{" "}
+            <span className="grad-text">к профессиям</span>{" "}
+            <span className="grad-text-2">будущего</span>
           </h1>
 
           <p className="mt-6 text-lg sm:text-xl text-ink-soft font-semibold">
-            «{site.name}» — центр детского развития для детей от 1 до 12 лет.
-            Очные занятия, продлёнка, малые группы и педагоги, которые любят своё дело.
+            «{site.name}» — детский центр развития в {site.city}е для детей {site.ages}.
+            Продлёнка, подготовка к школе, английский, шахматы, скорочтение, творчество
+            и нейроупражнения — очно, в комфортной и безопасной атмосфере.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <a href="#contacts" className="btn btn-primary btn-lg">Бесплатное пробное занятие</a>
-            <a href="#programs" className="btn btn-ghost btn-lg">Смотреть программы</a>
+            <a href="#contacts" className="btn btn-primary btn-lg">Записаться на продлёнку</a>
+            <a href="#programs" className="btn btn-ghost btn-lg">Все направления</a>
           </div>
 
           <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-4">
-            {[
-              ["7", "лет опыта"],
-              ["1500+", "счастливых семей"],
-              ["12", "направлений"],
-            ].map(([num, label]) => (
-              <li key={label} className="leading-tight">
-                <span className="block font-display font-bold text-3xl text-brand">{num}</span>
-                <span className="text-sm font-semibold text-ink-soft">{label}</span>
+            {facts.map((f) => (
+              <li key={f.label} className="leading-tight">
+                <span className="block font-display font-bold text-3xl text-brand">{f.value}</span>
+                <span className="text-sm font-semibold text-ink-soft">{f.label}</span>
               </li>
             ))}
           </ul>
+
+          <p className="mt-6 text-sm font-semibold text-ink-soft">
+            📍 {site.address} · <a href={`tel:${site.phoneHref}`} className="text-brand hover:underline">{site.phone}</a>
+          </p>
         </div>
 
         {/* Правая колонка — 3D-сцена в собственной области */}
@@ -51,7 +53,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* индикатор прокрутки */}
       <a
         href="#advantages"
         aria-label="Листать вниз"

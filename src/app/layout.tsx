@@ -18,22 +18,26 @@ const comfortaa = Comfortaa({
   display: "swap",
 });
 
+const title = `${site.name} — детский центр развития в Нальчике | Продлёнка, подготовка к школе, английский`;
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.tagline} | Раннее развитие, подготовка к школе`,
+    default: title,
     template: `%s | ${site.name}`,
   },
   description: site.description,
   keywords: [
-    "детский центр",
-    "развитие детей",
-    "подготовка к школе",
-    "раннее развитие",
-    "английский для детей",
-    "ментальная арифметика",
-    "логопед",
-    "детский развивающий центр",
+    "детский центр Нальчик",
+    "продлёнка Нальчик",
+    "группа продлённого дня Нальчик",
+    "подготовка к школе Нальчик",
+    "английский для детей Нальчик",
+    "развивающий центр Нальчик",
+    "шахматы для детей",
+    "скорочтение",
+    "нейроупражнения",
+    "Азбука успеха",
   ],
   applicationName: site.name,
   authors: [{ name: site.name }],
@@ -44,13 +48,13 @@ export const metadata: Metadata = {
     url: site.url,
     siteName: site.name,
     title: `${site.name} — ${site.tagline}`,
-    description: "Помогаем детям расти умными, уверенными и счастливыми. Первое пробное занятие — бесплатно!",
+    description: `${site.motto}. Дети ${site.ages}. Продлёнка со скидкой 20% первым 10 записавшимся. ${site.address}.`,
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} — ${site.tagline}`,
-    description: "Центр детского развития. Первое пробное занятие бесплатно!",
+    description: `${site.motto}. Дети ${site.ages}. ${site.addressShort}, Нальчик.`,
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -66,18 +70,28 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+// Структурированные данные для поисковиков (Яндекс, Google)
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "ChildCare",
+  "@type": ["ChildCare", "EducationalOrganization"],
   name: site.name,
+  alternateName: "Азбука Успеха — центр развития",
+  slogan: site.slogan,
   description: site.description,
   url: site.url,
   telephone: site.phoneHref,
-  email: site.email,
-  address: { "@type": "PostalAddress", streetAddress: site.address, addressCountry: "RU" },
-  openingHours: "Mo-Su 09:00-20:00",
+  image: `${site.url}/og-image.jpg`,
+  logo: `${site.url}/images/avatar.jpg`,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "ул. Атажукина, 18",
+    addressLocality: "Нальчик",
+    addressRegion: "Кабардино-Балкарская Республика",
+    addressCountry: "RU",
+  },
+  areaServed: "Нальчик",
   priceRange: "₽₽",
-  sameAs: [site.socials.instagram, site.socials.vk, site.socials.telegram],
+  sameAs: [site.socials.instagram],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
