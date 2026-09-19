@@ -4,17 +4,17 @@ import { Logo } from "../Logo";
 export function Footer() {
   return (
     <footer className="bg-ink text-white/80 border-t border-white/10">
-      <div className="container-x grid gap-10 sm:grid-cols-2 lg:grid-cols-4 py-14">
+      <div className="container-x grid gap-10 sm:grid-cols-2 lg:grid-cols-[1fr_1.25fr_0.75fr_1fr] lg:gap-8 py-14">
         <div>
           <Logo footer />
-          <p className="mt-4 text-base leading-relaxed max-w-xs">
+          <p className="mt-4 text-[14px] leading-relaxed max-w-xs">
             {site.tagline}. {site.motto}. Дети {site.ages}, очные занятия и продлёнка.
           </p>
         </div>
 
         <div>
           <h4 className="font-display font-bold text-white mb-4">Направления</h4>
-          <ul className="space-y-2.5 text-base">
+          <ul className="space-y-2 text-[14px]">
             {["Продлёнка", "Подготовка к школе", "Английский язык", "Программирование", "Шахматы и скорочтение"].map((t) => (
               <li key={t}><a href="/#programs" className="hover:text-white transition-colors">{t}</a></li>
             ))}
@@ -24,7 +24,7 @@ export function Footer() {
 
         <div>
           <h4 className="font-display font-bold text-white mb-4">Центр</h4>
-          <ul className="space-y-2.5 text-base">
+          <ul className="space-y-2 text-[14px]">
             <li><a href="/#about" className="hover:text-white transition-colors">О нас</a></li>
             <li><a href="/#teachers" className="hover:text-white transition-colors">Педагоги</a></li>
             <li><a href="/#prices" className="hover:text-white transition-colors">Форматы</a></li>
@@ -34,7 +34,7 @@ export function Footer() {
 
         <div>
           <h4 className="font-display font-bold text-white mb-4">Контакты</h4>
-          <ul className="space-y-2.5 text-base">
+          <ul className="space-y-2 text-[14px]">
             <li><a href={`tel:${site.phoneHref}`} className="hover:text-white transition-colors">{site.phone}</a></li>
             <li>{site.address}</li>
             <li><a href={site.socials.whatsapp} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">WhatsApp: {site.phone}</a></li>
@@ -43,7 +43,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container-x flex flex-col sm:flex-row items-center justify-between gap-3 py-6 pb-20 sm:pb-6 text-[0.95rem] text-center sm:text-left">
+        <div className="container-x flex flex-col sm:flex-row items-center justify-between gap-3 py-6 pb-20 sm:pb-6 text-[14px] text-center sm:text-left">
           <span>© {new Date().getFullYear()} «{site.name}», {site.city} · {site.legal.operator}, ИНН {site.legal.inn}</span>
           <a href="/privacy" className="hover:text-white transition-colors">Политика конфиденциальности</a>
         </div>
