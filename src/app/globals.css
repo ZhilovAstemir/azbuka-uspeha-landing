@@ -144,7 +144,6 @@ body {
   }
   .btn svg {
     flex-shrink: 0;
-    stroke: currentColor;
   }
 
   .card {
