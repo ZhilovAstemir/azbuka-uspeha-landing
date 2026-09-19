@@ -142,6 +142,10 @@ body {
   .btn-block {
     width: 100%;
   }
+  .btn svg {
+    flex-shrink: 0;
+    stroke: currentColor;
+  }
 
   .card {
     background: #fff;

@@ -1,6 +1,7 @@
 import { site } from "@/lib/content";
 import { Reveal } from "../Reveal";
 import { LeadForm } from "../LeadForm";
+import { Icon } from "../Icon";
 
 export function Contacts() {
   return (
@@ -12,25 +13,43 @@ export function Contacts() {
         <Reveal>
           <span className="eyebrow !bg-white/15 !text-white">Запишитесь сегодня</span>
           <h2 className="mt-4 font-display font-bold text-[clamp(1.9rem,4vw,3rem)] leading-tight">
-            Забронируйте место на продлёнке со скидкой 20% 🎒
+            Забронируйте место на продлёнке со скидкой 20%
           </h2>
           <p className="mt-4 text-lg font-semibold text-white/85 max-w-md">
             Оставьте заявку, и мы перезвоним, ответим на вопросы
             и подберём удобное расписание.
           </p>
 
-          <ul className="mt-8 space-y-3 font-semibold">
-            <li className="flex gap-3"><span>📍</span> {site.address}</li>
-            <li className="flex gap-3"><span>📞</span> <a href={`tel:${site.phoneHref}`} className="hover:text-sun">{site.phone}</a></li>
-            <li className="flex gap-3"><span>💬</span> <a href={site.socials.whatsapp} target="_blank" rel="noopener noreferrer" className="hover:text-sun">WhatsApp: {site.phone}</a></li>
+          <ul className="mt-8 space-y-4">
+            {[
+              { icon: "pin", label: "Адрес", value: site.address },
+              { icon: "phone", label: "Телефон", value: site.phone, href: `tel:${site.phoneHref}` },
+              { icon: "whatsapp", label: "WhatsApp", value: site.phone, href: site.socials.whatsapp, external: true },
+            ].map((r) => (
+              <li key={r.label} className="flex items-center gap-4">
+                <span className="grid place-items-center w-11 h-11 rounded-2xl bg-white/10 shrink-0">
+                  <Icon name={r.icon} />
+                </span>
+                <span>
+                  <span className="block text-xs font-bold uppercase tracking-wider text-white/50">{r.label}</span>
+                  {r.href ? (
+                    <a href={r.href} target={r.external ? "_blank" : undefined} rel={r.external ? "noopener noreferrer" : undefined} className="font-bold hover:text-sun">
+                      {r.value}
+                    </a>
+                  ) : (
+                    <span className="font-bold">{r.value}</span>
+                  )}
+                </span>
+              </li>
+            ))}
           </ul>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href={site.socials.whatsapp} target="_blank" rel="noopener noreferrer" className="btn btn-accent btn-sm">
-              💬 Написать в WhatsApp
+            <a href={site.socials.whatsapp} target="_blank" rel="noopener noreferrer" className="btn btn-accent">
+              <Icon name="whatsapp" className="w-4 h-4" strokeWidth={2} /> Написать в WhatsApp
             </a>
-            <a href={`tel:${site.phoneHref}`} className="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 font-bold transition-colors">
-              Позвонить
+            <a href={`tel:${site.phoneHref}`} className="btn btn-ghost">
+              <Icon name="phone" className="w-4 h-4" strokeWidth={2} /> Позвонить
             </a>
           </div>
         </Reveal>
