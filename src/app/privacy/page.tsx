@@ -21,7 +21,7 @@ export default function PrivacyPage() {
       <Header />
       <main className="pt-28 pb-20">
         <article className="container-x max-w-3xl">
-          <a href="/" className="inline-flex items-center gap-2 font-bold text-brand hover:underline mb-6">
+          <a href="/" className="flex w-fit items-center gap-2 font-bold text-brand hover:underline mb-6">
             ← На главную
           </a>
           <span className="eyebrow">Документы</span>
@@ -29,7 +29,7 @@ export default function PrivacyPage() {
             Политика конфиденциальности и обработки персональных данных
           </h1>
           <p className="mt-3 text-ink-soft font-semibold">
-            Редакция от {policyDate}. Действует для сайта {site.url.replace("https://", "")} и всех форм на нём.
+            Редакция от {policyDate} Действует для сайта {site.url.replace("https://", "")} и всех форм на нём.
           </p>
 
           <div className="prose-custom mt-10 space-y-8 text-ink leading-relaxed">
@@ -42,7 +42,7 @@ export default function PrivacyPage() {
                 от 27.07.2006 № 152-ФЗ «О персональных данных».
               </p>
               <p>
-                1.2. Оператором персональных данных является {operator}, ИНН {inn}
+                1.2. Оператором персональных данных является {operator}, ИНН {inn}{" "}
                 (далее — Оператор). Адрес: {site.address}. Телефон: {site.phone}.
               </p>
               <p>

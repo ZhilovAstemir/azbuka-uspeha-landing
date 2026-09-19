@@ -48,9 +48,9 @@ export function Programs() {
           </div>
         </Reveal>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {programs.map((p, i) => (
-            <Reveal key={p.title} delay={(i % 4) * 0.06}>
+            <Reveal key={p.title} delay={(i % 3) * 0.06}>
               <TiltCard className="card h-full p-6 relative overflow-hidden flex flex-col">
                 <span className="absolute -right-6 -top-6 w-24 h-24 rounded-full opacity-15" style={{ background: p.color }} />
                 <div
