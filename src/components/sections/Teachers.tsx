@@ -13,12 +13,12 @@ export function Teachers() {
           title="Педагоги, которым можно доверить ребёнка"
           sub="Знакомим с преподавателями «Азбуки успеха». Команда растёт — скоро расскажем о других педагогах и специалистах."
         />
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {teachers.map((t) => (
             <Reveal key={t.name}>
               <TiltCard className="card h-full overflow-hidden">
                 <div className="relative aspect-square">
-                  <Image src={t.photo} alt={t.name} fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <Image src={t.photo} alt={t.name} fill className="object-cover object-top" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
                 </div>
                 <div className="p-6">
                   <h3 className="font-display font-bold text-lg text-ink">{t.name}</h3>
@@ -36,7 +36,7 @@ export function Teachers() {
               style={{ background: "linear-gradient(135deg,var(--color-brand),var(--color-sky))" }}
             >
               <span className="text-6xl mb-4">👋</span>
-              <h3 className="font-display font-bold text-2xl text-white">Познакомьтесь лично</h3>
+              <h3 className="font-display font-bold text-xl text-white">Познакомьтесь лично</h3>
               <p className="mt-3 text-white/90 font-semibold">
                 Приходите в центр: покажем кабинеты, познакомим с педагогами и ответим на все вопросы.
               </p>
