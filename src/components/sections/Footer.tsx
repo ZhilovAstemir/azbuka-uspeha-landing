@@ -15,8 +15,8 @@ export function Footer() {
         <div>
           <h4 className="font-display font-bold text-white mb-4">Направления</h4>
           <ul className="space-y-2 text-sm">
-            {["Продлёнка", "Подготовка к школе", "Английский язык", "Шахматы и скорочтение", "Нейроупражнения"].map((t) => (
-              <li key={t}><a href="#programs" className="hover:text-white transition-colors">{t}</a></li>
+            {["Продлёнка", "Подготовка к школе", "Английский язык", "Программирование", "Шахматы и скорочтение"].map((t) => (
+              <li key={t}><a href="/#programs" className="hover:text-white transition-colors">{t}</a></li>
             ))}
           </ul>
         </div>
@@ -24,10 +24,10 @@ export function Footer() {
         <div>
           <h4 className="font-display font-bold text-white mb-4">Центр</h4>
           <ul className="space-y-2 text-sm">
-            <li><a href="#about" className="hover:text-white transition-colors">О нас</a></li>
-            <li><a href="#teachers" className="hover:text-white transition-colors">Педагоги</a></li>
-            <li><a href="#prices" className="hover:text-white transition-colors">Форматы</a></li>
-            <li><a href="#reviews" className="hover:text-white transition-colors">Отзывы</a></li>
+            <li><a href="/#about" className="hover:text-white transition-colors">О нас</a></li>
+            <li><a href="/#teachers" className="hover:text-white transition-colors">Педагоги</a></li>
+            <li><a href="/#prices" className="hover:text-white transition-colors">Форматы</a></li>
+            <li><a href="/#reviews" className="hover:text-white transition-colors">Отзывы</a></li>
           </ul>
         </div>
 
@@ -43,8 +43,8 @@ export function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-x flex flex-col sm:flex-row items-center justify-between gap-3 py-6 text-sm">
-          <span>© {new Date().getFullYear()} «{site.name}», {site.city}. Все права защищены.</span>
-          <a href="#" className="hover:text-white transition-colors">Политика конфиденциальности</a>
+          <span>© {new Date().getFullYear()} «{site.name}», {site.city} · {site.legal.operator}, ИНН {site.legal.inn}</span>
+          <a href="/privacy" className="hover:text-white transition-colors">Политика конфиденциальности</a>
         </div>
       </div>
     </footer>

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function Logo({ footer = false }: { footer?: boolean }) {
   return (
-    <a href="#hero" className="flex items-center gap-2.5 shrink-0" aria-label="Азбука успеха — на главную">
+    <a href="/" className="flex items-center gap-2.5 shrink-0" aria-label="Азбука успеха — на главную">
       <Image
         src="/images/avatar.jpg"
         alt="Логотип «Азбука успеха»"

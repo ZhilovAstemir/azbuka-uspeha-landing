@@ -13,7 +13,7 @@ export function FloatingCta() {
 
   return (
     <a
-      href="#contacts"
+      href="/#contacts"
       className={`fixed z-40 bottom-5 right-5 btn btn-primary shadow-[var(--shadow-brand)] transition-all duration-300 ${
         show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
       }`}

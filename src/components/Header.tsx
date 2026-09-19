@@ -55,7 +55,7 @@ export function Header() {
             <a href={`tel:${site.phoneHref}`} className="hidden md:inline font-extrabold text-ink hover:text-brand transition-colors">
               {site.phone}
             </a>
-            <a href="#contacts" className="btn btn-primary btn-sm hidden sm:inline-flex">
+            <a href="/#contacts" className="btn btn-primary btn-sm hidden sm:inline-flex">
               Записаться
             </a>
 
@@ -102,7 +102,7 @@ export function Header() {
           <a href={`tel:${site.phoneHref}`} className="text-xl font-extrabold text-brand mt-4">
             {site.phone}
           </a>
-          <a href="#contacts" onClick={() => setOpen(false)} className="btn btn-primary btn-lg btn-block mt-4">
+          <a href="/#contacts" onClick={() => setOpen(false)} className="btn btn-primary btn-lg btn-block mt-4">
             Записаться на продлёнку
           </a>
         </nav>
