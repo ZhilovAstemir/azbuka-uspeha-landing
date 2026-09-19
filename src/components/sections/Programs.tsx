@@ -57,7 +57,9 @@ export function Programs() {
             <div className="relative p-8 sm:p-10">
               <span className="eyebrow !bg-white/10 !text-white">🛡️ {academy.audience}</span>
               <h3 className="mt-3 font-display font-bold text-2xl sm:text-3xl">
-                {academy.title} <span className="text-teal">{academy.name}</span>
+                {academy.title}{" "}
+                <span className="text-coral">{academy.name.split(" ")[0]}</span>{" "}
+                <span className="text-white">{academy.name.split(" ").slice(1).join(" ")}</span>
               </h3>
               <p className="mt-3 text-white/80 font-semibold text-lg">{academy.lead}</p>
               <ul className="mt-5 grid sm:grid-cols-2 gap-2 font-semibold">
