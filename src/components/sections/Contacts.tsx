@@ -22,15 +22,12 @@ export function Contacts() {
           <ul className="mt-8 space-y-3 font-semibold">
             <li className="flex gap-3"><span>📍</span> {site.address}</li>
             <li className="flex gap-3"><span>📞</span> <a href={`tel:${site.phoneHref}`} className="hover:text-sun">{site.phone}</a></li>
-            <li className="flex gap-3"><span>💬</span> <span>Слово «{site.codeWord}» в Direct <a href={site.socials.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-sun underline decoration-white/40">{site.instagramHandle}</a></span></li>
+            <li className="flex gap-3"><span>💬</span> <a href={site.socials.whatsapp} target="_blank" rel="noopener noreferrer" className="hover:text-sun">WhatsApp: {site.phone}</a></li>
           </ul>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href={site.socials.whatsapp} target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 font-bold transition-colors">
-              WhatsApp
-            </a>
-            <a href={site.socials.instagram} target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 font-bold transition-colors">
-              Instagram
+            <a href={site.socials.whatsapp} target="_blank" rel="noopener noreferrer" className="btn btn-accent btn-sm">
+              💬 Написать в WhatsApp
             </a>
             <a href={`tel:${site.phoneHref}`} className="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 font-bold transition-colors">
               Позвонить

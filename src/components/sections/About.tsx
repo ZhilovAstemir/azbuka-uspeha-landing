@@ -11,7 +11,7 @@ export function About() {
         <Reveal className="order-2 lg:order-1">
           <div className="relative aspect-[4/3] max-w-lg mx-auto">
             <div className="absolute inset-0 rounded-[2rem] overflow-hidden shadow-[var(--shadow-soft)]">
-              <Image src="/images/post2-podgotovka.jpg" alt="Ребёнок играет с кубиками-буквами на занятии" fill className="object-cover" sizes="(max-width: 1024px) 90vw, 40vw" />
+              <Image src="/images/post7-prodlenka.jpg" alt="Девочка выполняет задание на занятии" fill className="object-cover object-[50%_8%]" sizes="(max-width: 1024px) 90vw, 40vw" />
             </div>
             <div className="absolute -right-4 -top-6 w-32 h-40 rounded-3xl overflow-hidden shadow-[var(--shadow-soft)] ring-4 ring-cream animate-floaty [animation-delay:-1.5s]">
               <Image src="/images/post8-den-znaniy.jpg" alt="Педагог с букварём" fill className="object-cover" sizes="128px" />

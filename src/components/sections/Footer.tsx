@@ -27,7 +27,7 @@ export function Footer() {
             <li><a href="#about" className="hover:text-white transition-colors">О нас</a></li>
             <li><a href="#teachers" className="hover:text-white transition-colors">Педагоги</a></li>
             <li><a href="#prices" className="hover:text-white transition-colors">Форматы</a></li>
-            <li><a href={site.socials.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Мы в Instagram</a></li>
+            <li><a href="#reviews" className="hover:text-white transition-colors">Отзывы</a></li>
           </ul>
         </div>
 
@@ -36,8 +36,7 @@ export function Footer() {
           <ul className="space-y-2 text-sm">
             <li><a href={`tel:${site.phoneHref}`} className="hover:text-white transition-colors">{site.phone}</a></li>
             <li>{site.address}</li>
-            <li><a href={site.socials.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">{site.instagramHandle}</a></li>
-            <li><a href={site.socials.whatsapp} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">WhatsApp</a></li>
+            <li><a href={site.socials.whatsapp} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">WhatsApp: {site.phone}</a></li>
           </ul>
         </div>
       </div>

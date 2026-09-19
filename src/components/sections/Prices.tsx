@@ -9,7 +9,7 @@ export function Prices() {
         <SectionHead
           eyebrow="Форматы занятий"
           title="Выберите подходящий формат"
-          sub={`Стоимость и расписание подскажем по телефону ${site.phone} или в Direct Instagram.`}
+          sub={`Стоимость и расписание подскажем по телефону ${site.phone} или в WhatsApp.`}
         />
         <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto items-start">
           {formats.map((p, i) => (

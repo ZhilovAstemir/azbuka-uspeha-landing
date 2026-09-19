@@ -91,7 +91,6 @@ const jsonLd = {
   },
   areaServed: "Нальчик",
   priceRange: "₽₽",
-  sameAs: [site.socials.instagram],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

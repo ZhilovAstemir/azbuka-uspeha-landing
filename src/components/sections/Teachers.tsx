@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { teachers, site } from "@/lib/content";
+import { teachers } from "@/lib/content";
 import { SectionHead } from "../SectionHead";
 import { Reveal } from "../Reveal";
 import { TiltCard } from "../TiltCard";
@@ -11,7 +11,7 @@ export function Teachers() {
         <SectionHead
           eyebrow="Наша команда"
           title="Педагоги, которым можно доверить ребёнка"
-          sub="Знакомим с преподавателями «Азбуки успеха». Команда растёт — следите за новыми знакомствами в Instagram."
+          sub="Знакомим с преподавателями «Азбуки успеха». Команда растёт — скоро расскажем о других педагогах и специалистах."
         />
         <div className="grid gap-6 md:grid-cols-3">
           {teachers.map((t) => (
@@ -31,18 +31,16 @@ export function Teachers() {
 
           <Reveal delay={0.1}>
             <a
-              href={site.socials.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contacts"
               className="card h-full p-8 flex flex-col justify-center items-center text-center transition-transform hover:-translate-y-1"
-              style={{ background: "linear-gradient(135deg,var(--color-brand),var(--color-pink))" }}
+              style={{ background: "linear-gradient(135deg,var(--color-brand),var(--color-sky))" }}
             >
               <span className="text-6xl mb-4">👋</span>
-              <h3 className="font-display font-bold text-2xl text-white">Скоро — новые знакомства</h3>
+              <h3 className="font-display font-bold text-2xl text-white">Познакомьтесь лично</h3>
               <p className="mt-3 text-white/90 font-semibold">
-                Впереди — рассказы о других преподавателях и специалистах центра. Подписывайтесь {site.instagramHandle}.
+                Приходите в центр: покажем кабинеты, познакомим с педагогами и ответим на все вопросы.
               </p>
-              <span className="btn btn-ghost mt-6">Открыть Instagram</span>
+              <span className="btn btn-ghost mt-6">Записаться на встречу</span>
             </a>
           </Reveal>
         </div>
