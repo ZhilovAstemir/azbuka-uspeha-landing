@@ -4,25 +4,23 @@ import { Reveal } from "../Reveal";
 
 export function Steps() {
   return (
-    <section id="how" className="py-20 sm:py-28 bg-mint">
+    <section id="how" className="py-20 sm:py-28 bg-white border-y border-line">
       <div className="container-x">
-        <SectionHead eyebrow="Как начать" title="Всего 4 простых шага" />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <SectionHead eyebrow="04 — Как начать" title="Четыре простых шага до первого занятия" />
+        <ol className="relative grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <span className="hidden lg:block absolute top-6 left-[12.5%] right-[12.5%] h-px bg-line" aria-hidden="true" />
           {steps.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.08}>
-              <div className="card h-full p-7 relative">
-                <div className="font-display font-bold text-5xl grad-text mb-3">
-                  {String(i + 1).padStart(2, "0")}
+              <li className="relative">
+                <div className="relative z-10 grid place-items-center w-12 h-12 rounded-full bg-ink text-white font-display font-semibold">
+                  {i + 1}
                 </div>
-                <h3 className="font-display font-bold text-lg text-ink mb-2">{s.title}</h3>
-                <p className="text-ink-soft font-medium leading-relaxed">{s.text}</p>
-                {i < steps.length - 1 && (
-                  <span className="hidden lg:block absolute top-10 -right-3 text-2xl text-brand/40">→</span>
-                )}
-              </div>
+                <h3 className="font-display font-semibold text-[1.05rem] text-ink mt-6 mb-2">{s.title}</h3>
+                <p className="text-ink-soft leading-relaxed">{s.text}</p>
+              </li>
             </Reveal>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

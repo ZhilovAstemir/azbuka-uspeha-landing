@@ -1,76 +1,85 @@
 import { programs, prodlenka, site } from "@/lib/content";
 import { SectionHead } from "../SectionHead";
 import { Reveal } from "../Reveal";
-import { TiltCard } from "../TiltCard";
+import { Icon } from "../Icon";
+
+/** Убираем ведущий эмодзи из строк списка — в этой версии дизайна иконки свои. */
+const stripEmoji = (s: string) => s.replace(/^[^\p{L}\p{N}]+/u, "").trim();
 
 export function Programs() {
   return (
-    <section id="programs" className="py-20 sm:py-28 bg-lav">
+    <section id="programs" className="py-20 sm:py-28 bg-white border-y border-line">
       <div className="container-x">
         <SectionHead
-          eyebrow="Наши направления"
+          eyebrow="02 — Направления"
           title="Программы для детей от 3 до 17 лет"
-          sub="Очные занятия в центре Нальчика — от подготовки к школе до английского для старшеклассников."
+          sub="Очные занятия в центре Нальчика — от подготовки к школе до английского и программирования для старшеклассников."
         />
 
-        {/* Акцент: продлёнка */}
+        {/* Ключевой продукт — продлёнка */}
         <Reveal>
-          <div className="card overflow-hidden mb-8 grid md:grid-cols-[1.35fr_1fr]">
-            <div className="p-8 sm:p-10">
-              <span className="eyebrow !bg-coral/10 !text-coral">🔥 {site.promo.title} {site.promo.text}</span>
-              <h3 className="mt-3 font-display font-bold text-2xl sm:text-3xl text-ink">
-                {prodlenka.title} 🎒
-              </h3>
-              <p className="mt-3 text-ink-soft font-semibold text-lg">{prodlenka.lead}</p>
-              <ul className="mt-5 grid sm:grid-cols-2 gap-2 text-ink font-semibold">
-                {prodlenka.includes.map((i) => (
-                  <li key={i}>{i}</li>
-                ))}
-              </ul>
-              <div className="mt-7 flex flex-wrap gap-3 items-center">
-                <a href="#contacts" className="btn btn-primary">Забронировать место</a>
-                <a href={`tel:${site.phoneHref}`} className="text-sm font-bold text-brand hover:underline">
-                  или позвоните {site.phone}
+          <div className="relative overflow-hidden rounded-[28px] bg-ink text-white grid lg:grid-cols-[1.2fr_1fr]">
+            <div className="pointer-events-none absolute -top-24 -right-24 w-80 h-80 rounded-full bg-brand/40 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-32 left-1/3 w-80 h-80 rounded-full bg-accent/20 blur-3xl" />
+
+            <div className="relative p-8 sm:p-12">
+              <span className="tag bg-accent text-white">
+                <Icon name="fire" className="w-4 h-4 mr-1.5" />
+                {site.promo.title} {site.promo.text}
+              </span>
+              <h3 className="h-display mt-6 text-[clamp(1.5rem,3vw,2.2rem)]">{prodlenka.title}</h3>
+              <p className="mt-4 text-white/75 text-lg leading-relaxed max-w-xl">{prodlenka.lead}</p>
+              <div className="mt-8 flex flex-wrap gap-3 items-center">
+                <a href="#contacts" className="btn btn-primary">
+                  Забронировать место
+                  <Icon name="arrow" className="w-4 h-4" strokeWidth={2.2} />
+                </a>
+                <a href={`tel:${site.phoneHref}`} className="btn btn-outline !text-white !border-white/25 hover:!border-white">
+                  {site.phone}
                 </a>
               </div>
             </div>
-            <div
-              className="relative min-h-[220px] grid place-items-center overflow-hidden"
-              style={{ background: "linear-gradient(135deg,var(--color-brand),var(--color-sky))" }}
-            >
-              <span className="absolute -left-8 -top-8 w-40 h-40 rounded-full bg-white/10" />
-              <span className="absolute -right-10 -bottom-10 w-52 h-52 rounded-full bg-white/10" />
-              <div className="relative text-center text-white">
-                <div className="text-[6rem] leading-none animate-floaty">🎒</div>
-                <div className="mt-2 font-display font-bold text-xl">после школы — с пользой</div>
-              </div>
+
+            <div className="relative p-8 sm:p-12 lg:border-l border-white/10 bg-white/[0.04]">
+              <div className="text-xs font-semibold tracking-[0.14em] uppercase text-white/60 mb-5">Что входит</div>
+              <ul className="space-y-3.5">
+                {prodlenka.includes.map((i) => (
+                  <li key={i} className="flex items-start gap-3 font-medium">
+                    <span className="mt-0.5 grid place-items-center w-6 h-6 rounded-full bg-teal/25 text-teal shrink-0">
+                      <Icon name="check" className="w-3.5 h-3.5" strokeWidth={2.5} />
+                    </span>
+                    {stripEmoji(i)}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </Reveal>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Сетка направлений */}
+        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {programs.map((p, i) => (
             <Reveal key={p.title} delay={(i % 3) * 0.06}>
-              <TiltCard className="card h-full p-6 relative overflow-hidden flex flex-col">
-                <span className="absolute -right-6 -top-6 w-24 h-24 rounded-full opacity-15" style={{ background: p.color }} />
-                <div
-                  className="grid place-items-center w-16 h-16 rounded-2xl text-4xl mb-4"
-                  style={{ background: `color-mix(in srgb, ${p.color} 14%, white)` }}
-                >
-                  {p.emoji}
+              <article className="card card-hover h-full p-7 flex flex-col">
+                <div className="flex items-start justify-between mb-6">
+                  <div
+                    className="grid place-items-center w-12 h-12 rounded-xl"
+                    style={{ background: `color-mix(in srgb, ${p.color} 12%, white)`, color: p.color }}
+                  >
+                    <Icon name={p.icon} className="w-6 h-6" />
+                  </div>
+                  <span className="font-display text-sm text-ink/30">{String(i + 1).padStart(2, "0")}</span>
                 </div>
-                <h3 className="font-display font-bold text-lg text-ink mb-2">{p.title}</h3>
-                <p className="text-ink-soft font-medium leading-relaxed mb-4 flex-1">{p.text}</p>
-                <span className="inline-block self-start text-xs font-extrabold px-3 py-1.5 rounded-full text-white" style={{ background: p.color }}>
-                  {p.age}
-                </span>
-              </TiltCard>
+                <h3 className="font-display font-semibold text-[1.05rem] text-ink mb-2.5 leading-snug">{p.title}</h3>
+                <p className="text-ink-soft leading-relaxed flex-1">{p.text}</p>
+                <span className="tag mt-6 self-start border border-line text-ink-soft">{p.age}</span>
+              </article>
             </Reveal>
           ))}
         </div>
 
-        <Reveal className="text-center mt-12">
-          <a href="#contacts" className="btn btn-primary btn-lg">Подобрать направление ребёнку</a>
+        <Reveal className="mt-12 flex justify-center">
+          <a href="#contacts" className="btn btn-secondary btn-lg">Подобрать направление ребёнку</a>
         </Reveal>
       </div>
     </section>

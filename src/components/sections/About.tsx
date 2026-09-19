@@ -1,56 +1,65 @@
 import Image from "next/image";
-import { site, facts } from "@/lib/content";
+import { site } from "@/lib/content";
 import { SectionHead } from "../SectionHead";
 import { Reveal } from "../Reveal";
+import { Icon } from "../Icon";
+
+const points = [
+  "Комфортная и безопасная атмосфера",
+  "Внимание к каждому ребёнку и забота о его самочувствии",
+  "Родители спокойны, а дети занимаются, общаются и отдыхают с пользой",
+];
 
 export function About() {
   return (
     <section id="about" className="py-20 sm:py-28">
-      <div className="container-x grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        {/* Фото-коллаж из реальных снимков центра */}
+      <div className="container-x grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
         <Reveal className="order-2 lg:order-1">
-          <div className="relative aspect-[4/3] max-w-lg mx-auto">
-            <div className="absolute inset-0 rounded-[2rem] overflow-hidden shadow-[var(--shadow-soft)]">
-              <Image src="/images/post7-prodlenka.jpg" alt="Девочка выполняет задание на занятии" fill className="object-cover object-[50%_40%]" sizes="(max-width: 1024px) 90vw, 40vw" />
+          <div className="relative max-w-[520px] mx-auto">
+            <div className="relative aspect-[4/5] rounded-[28px] overflow-hidden shadow-[var(--shadow-lift)]">
+              <Image
+                src="/images/post7-prodlenka.jpg"
+                alt="Девочка выполняет задание на занятии"
+                fill
+                className="object-cover object-[50%_40%]"
+                sizes="(max-width: 1024px) 90vw, 40vw"
+              />
             </div>
-            <div className="absolute -right-4 -top-6 w-32 h-40 rounded-3xl overflow-hidden shadow-[var(--shadow-soft)] ring-4 ring-cream animate-floaty [animation-delay:-1.5s]">
-              <Image src="/images/post8-den-znaniy.jpg" alt="Педагог с букварём" fill className="object-cover" sizes="128px" />
+            <div className="absolute -right-4 sm:-right-8 bottom-10 w-36 sm:w-44 aspect-square rounded-2xl overflow-hidden shadow-[var(--shadow-lift)] ring-4 ring-bg">
+              <Image src="/images/post9-prodlenka.jpg" alt="Развивающая настольная игра" fill className="object-cover" sizes="176px" />
             </div>
-            <div className="absolute -left-5 bottom-8 w-28 h-28 rounded-3xl overflow-hidden shadow-[var(--shadow-soft)] ring-4 ring-cream animate-floaty [animation-delay:-3s]">
-              <Image src="/images/post9-prodlenka.jpg" alt="Развивающая настольная игра" fill className="object-cover" sizes="112px" />
-            </div>
-            <div className="absolute right-6 -bottom-5 px-4 py-2 rounded-full bg-brand text-white font-extrabold shadow-[var(--shadow-brand)]">
-              {site.slogan}
+            <div className="absolute -left-3 sm:-left-6 top-8 bg-white rounded-2xl px-5 py-4 shadow-[var(--shadow-lift)] border border-line">
+              <div className="text-xs font-semibold tracking-[0.12em] uppercase text-brand">Наш девиз</div>
+              <div className="mt-1 font-display font-semibold text-ink">{site.slogan}</div>
             </div>
           </div>
         </Reveal>
 
         <div className="order-1 lg:order-2">
           <SectionHead
-            center={false}
-            eyebrow={`О центре «${site.name}»`}
+            eyebrow={`03 — О центре`}
             title={<>Знания сегодня — <span className="grad-text">успех завтра</span></>}
+            className="!mb-6"
           />
-          <div className="-mt-6">
-            <p className="text-ink-soft font-semibold text-lg leading-relaxed">
-              Мы помогаем детям от 3 до 17 лет спокойно и продуктивно учиться: выполнять домашние
-              задания под присмотром педагогов, разбираться с непонятными темами, закреплять
-              пройденное и открывать новое — от английского и шахмат до театра и нейроупражнений.
-            </p>
-            <ul className="mt-6 space-y-2 font-semibold text-ink">
-              <li>✅ Комфортная и безопасная атмосфера</li>
-              <li>✅ Внимание к каждому ребёнку и забота о его самочувствии</li>
-              <li>✅ Родители спокойны, а дети занимаются, общаются и отдыхают с пользой</li>
-            </ul>
-
-            <div className="mt-10 grid grid-cols-3 gap-6">
-              {facts.map((f) => (
-                <div key={f.label}>
-                  <div className="font-display font-bold text-3xl sm:text-4xl grad-text">{f.value}</div>
-                  <div className="text-sm font-bold text-ink-soft mt-1">{f.label}</div>
-                </div>
-              ))}
-            </div>
+          <p className="text-ink-soft text-lg leading-relaxed">
+            Мы помогаем детям от 3 до 17 лет спокойно и продуктивно учиться: выполнять домашние
+            задания под присмотром педагогов, разбираться с непонятными темами, закреплять
+            пройденное и открывать новое — от английского и шахмат до программирования
+            и нейроупражнений.
+          </p>
+          <ul className="mt-8 space-y-4">
+            {points.map((t) => (
+              <li key={t} className="flex items-start gap-3 font-medium text-ink">
+                <span className="mt-0.5 grid place-items-center w-6 h-6 rounded-full bg-teal/15 text-teal shrink-0">
+                  <Icon name="check" className="w-3.5 h-3.5" strokeWidth={2.5} />
+                </span>
+                {t}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <a href="#contacts" className="btn btn-secondary">Познакомиться с центром</a>
+            <a href="#teachers" className="btn btn-outline">Наши педагоги</a>
           </div>
         </div>
       </div>

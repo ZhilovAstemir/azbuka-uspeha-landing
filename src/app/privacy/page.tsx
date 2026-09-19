@@ -19,16 +19,16 @@ export default function PrivacyPage() {
   return (
     <>
       <Header />
-      <main className="pt-28 pb-20">
+      <main className="pt-32 pb-24">
         <article className="container-x max-w-3xl">
-          <a href="/" className="flex w-fit items-center gap-2 font-bold text-brand hover:underline mb-6">
+          <a href="/" className="flex w-fit items-center gap-2 font-semibold text-brand hover:underline mb-8">
             ← На главную
           </a>
           <span className="eyebrow">Документы</span>
-          <h1 className="mt-4 font-display font-bold text-[clamp(1.8rem,4vw,2.6rem)] leading-tight text-ink">
+          <h1 className="h-display mt-5 text-[clamp(1.6rem,3.4vw,2.4rem)] text-ink">
             Политика конфиденциальности и обработки персональных данных
           </h1>
-          <p className="mt-3 text-ink-soft font-semibold">
+          <p className="mt-4 text-ink-soft">
             Редакция от {policyDate} Действует для сайта {site.url.replace("https://", "")} и всех форм на нём.
           </p>
 

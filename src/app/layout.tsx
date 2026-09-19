@@ -1,20 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import { Nunito, Comfortaa } from "next/font/google";
+import { Unbounded, Onest } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/content";
 import { Analytics } from "@/components/Analytics";
 
-const nunito = Nunito({
+const onest = Onest({
   subsets: ["latin", "cyrillic"],
-  weight: ["400", "600", "700", "800", "900"],
-  variable: "--font-nunito",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-onest",
   display: "swap",
 });
 
-const comfortaa = Comfortaa({
+const unbounded = Unbounded({
   subsets: ["latin", "cyrillic"],
-  weight: ["500", "700"],
-  variable: "--font-comfortaa",
+  weight: ["500", "600", "700"],
+  variable: "--font-unbounded",
   display: "swap",
 });
 
@@ -22,10 +22,7 @@ const title = `${site.name} — детский центр развития в Н
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: {
-    default: title,
-    template: `%s | ${site.name}`,
-  },
+  title: { default: title, template: `%s | ${site.name}` },
   description: site.description,
   keywords: [
     "детский центр Нальчик",
@@ -33,6 +30,7 @@ export const metadata: Metadata = {
     "группа продлённого дня Нальчик",
     "подготовка к школе Нальчик",
     "английский для детей Нальчик",
+    "программирование для детей Нальчик",
     "развивающий центр Нальчик",
     "шахматы для детей",
     "скорочтение",
@@ -65,12 +63,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#7b61ff",
+  themeColor: "#172036",
   width: "device-width",
   initialScale: 1,
 };
 
-// Структурированные данные для поисковиков (Яндекс, Google)
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": ["ChildCare", "EducationalOrganization"],
@@ -95,17 +92,11 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru" className={`${nunito.variable} ${comfortaa.variable}`}>
+    <html lang="ru" className={`${onest.variable} ${unbounded.variable}`}>
       <body>
         {children}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        <Analytics
-          yandexId={site.analytics.yandexMetrikaId}
-          gaId={site.analytics.gaMeasurementId}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <Analytics yandexId={site.analytics.yandexMetrikaId} gaId={site.analytics.gaMeasurementId} />
       </body>
     </html>
   );

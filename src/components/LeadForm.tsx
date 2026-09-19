@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Icon } from "./Icon";
 
 const programs = [
   "Продлёнка", "Подготовка к школе", "Английский для младших", "Английский для старшеклассников",
@@ -25,7 +26,6 @@ export function LeadForm() {
       // - или сторонний сервис форм.
       // Пока просто имитируем успешную отправку и логируем данные.
       console.log("Заявка:", data);
-      // Отправляем цель в аналитику, если она подключена
       const w = window as unknown as {
         ym?: (id: number, action: string, goal: string) => void;
         __ym_id?: number;
@@ -43,51 +43,35 @@ export function LeadForm() {
 
   if (sent) {
     return (
-      <div className="card p-8 text-center">
-        <div className="text-6xl mb-4">🎉</div>
-        <h3 className="font-display font-bold text-2xl text-ink mb-2">Спасибо! Заявка отправлена</h3>
-        <p className="text-ink-soft font-semibold">Мы перезвоним, ответим на вопросы и подберём удобное расписание.</p>
-        <button className="btn btn-ghost mt-6" onClick={() => setSent(false)}>
-          Отправить ещё одну
-        </button>
+      <div className="card p-10 text-center">
+        <div className="mx-auto grid place-items-center w-14 h-14 rounded-full bg-teal/15 text-teal mb-5">
+          <Icon name="check" className="w-7 h-7" strokeWidth={2.5} />
+        </div>
+        <h3 className="font-display font-semibold text-xl text-ink mb-2">Спасибо! Заявка отправлена</h3>
+        <p className="text-ink-soft">Мы перезвоним, ответим на вопросы и подберём удобное расписание.</p>
+        <button className="btn btn-outline mt-7" onClick={() => setSent(false)}>Отправить ещё одну</button>
       </div>
     );
   }
 
   return (
-    <form onSubmit={onSubmit} className="card p-7 sm:p-8" noValidate>
-      <h3 className="font-display font-bold text-2xl text-ink mb-6">Оставить заявку</h3>
+    <form onSubmit={onSubmit} className="card p-7 sm:p-9" noValidate>
+      <h3 className="font-display font-semibold text-xl text-ink">Оставить заявку</h3>
+      <p className="text-ink-soft text-sm mt-1.5 mb-7">Перезвоним и ответим на все вопросы.</p>
 
       <label className="block mb-4">
-        <span className="block text-sm font-bold text-ink-soft mb-1.5">Ваше имя</span>
-        <input
-          name="name"
-          required
-          placeholder="Как вас зовут?"
-          className="w-full rounded-2xl border-2 border-ink/10 focus:border-brand outline-none px-4 py-3 font-semibold transition-colors bg-white"
-        />
+        <span className="block text-xs font-semibold tracking-[0.08em] uppercase text-ink-soft mb-2">Ваше имя</span>
+        <input name="name" required placeholder="Как вас зовут?" className="input" />
       </label>
 
       <label className="block mb-4">
-        <span className="block text-sm font-bold text-ink-soft mb-1.5">Телефон</span>
-        <input
-          name="phone"
-          type="tel"
-          required
-          inputMode="tel"
-          placeholder="+7 (___) ___-__-__"
-          className="w-full rounded-2xl border-2 border-ink/10 focus:border-brand outline-none px-4 py-3 font-semibold transition-colors bg-white"
-        />
+        <span className="block text-xs font-semibold tracking-[0.08em] uppercase text-ink-soft mb-2">Телефон</span>
+        <input name="phone" type="tel" required inputMode="tel" placeholder="+7 (___) ___-__-__" className="input" />
       </label>
 
-      <label className="block mb-6">
-        <span className="block text-sm font-bold text-ink-soft mb-1.5">Направление</span>
-        <select
-          name="program"
-          required
-          defaultValue=""
-          className="w-full rounded-2xl border-2 border-ink/10 focus:border-brand outline-none px-4 py-3 font-semibold transition-colors bg-white"
-        >
+      <label className="block mb-7">
+        <span className="block text-xs font-semibold tracking-[0.08em] uppercase text-ink-soft mb-2">Направление</span>
+        <select name="program" required defaultValue="" className="input">
           <option value="" disabled hidden>Выберите направление</option>
           {programs.map((p) => (
             <option key={p}>{p}</option>
@@ -98,7 +82,7 @@ export function LeadForm() {
       <button type="submit" disabled={loading} className="btn btn-primary btn-lg btn-block disabled:opacity-70">
         {loading ? "Отправляем…" : "Записаться"}
       </button>
-      <p className="text-xs text-ink-soft mt-4 text-center font-medium">
+      <p className="text-xs text-ink-soft mt-4 text-center leading-relaxed">
         Нажимая кнопку, вы даёте согласие на обработку персональных данных в соответствии с{" "}
         <a href="/privacy" target="_blank" className="text-brand underline">политикой конфиденциальности</a>.
       </p>
