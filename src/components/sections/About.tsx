@@ -14,7 +14,7 @@ export function About() {
               <Image src="/images/post7-prodlenka.jpg" alt="Девочка выполняет задание на занятии" fill className="object-cover object-[50%_40%]" sizes="(max-width: 1024px) 90vw, 40vw" />
             </div>
             <div className="absolute -right-4 -top-6 w-32 h-40 rounded-3xl overflow-hidden shadow-[var(--shadow-soft)] ring-4 ring-cream animate-floaty [animation-delay:-1.5s]">
-              <Image src="/images/post8-den-znaniy.jpg" alt="Педагог с букварём" fill className="object-cover" sizes="128px" />
+              <Image src="/images/g-desks-girls.jpg" alt="Дети на занятии" fill className="object-cover object-[50%_35%]" sizes="128px" />
             </div>
             <div className="absolute -left-5 bottom-8 w-28 h-28 rounded-3xl overflow-hidden shadow-[var(--shadow-soft)] ring-4 ring-cream animate-floaty [animation-delay:-3s]">
               <Image src="/images/post9-prodlenka.jpg" alt="Развивающая настольная игра" fill className="object-cover" sizes="112px" />

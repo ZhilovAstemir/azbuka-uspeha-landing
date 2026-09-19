@@ -74,6 +74,17 @@ export const programs = [
   { emoji: "🧠", color: "#986c9e", title: "Нейроупражнения", text: "Баланс, координация, речь и внимание. Мозг учится обрабатывать разные виды информации одновременно.", age: "все возрасты" },
 ];
 
+/** Кадры с занятий для блока «Как проходят занятия» (файлы в /public/images) */
+export const gallery = [
+  { src: "/images/g-balance.jpg", alt: "Нейроупражнения на балансире", wide: true, pos: "50% 70%" },
+  { src: "/images/g-chess-class.jpg", alt: "Шахматы с тренером", pos: "50% 75%" },
+  { src: "/images/g-desks-girls.jpg", alt: "Подготовка к школе: письмо и счёт", pos: "50% 40%" },
+  { src: "/images/g-ball-game.jpg", alt: "Игры на английском", pos: "50% 40%" },
+  { src: "/images/g-projector.jpg", alt: "Интерактивные задания у экрана", pos: "60% 40%" },
+  { src: "/images/g-chess-boy.jpg", alt: "Первые партии", pos: "50% 35%" },
+  { src: "/images/g-desks-boys.jpg", alt: "Домашние задания на продлёнке", pos: "50% 45%" },
+];
+
 /** Академия кибербезопасности на базе центра — отдельный лендинг */
 export const academy = {
   name: "Zero Day Academy",
