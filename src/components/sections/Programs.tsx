@@ -17,7 +17,7 @@ export function Programs() {
         <Reveal>
           <div className="card overflow-hidden mb-8 grid md:grid-cols-[1.35fr_1fr]">
             <div className="p-8 sm:p-10">
-              <span className="eyebrow !bg-coral/10 !text-coral">🔥 {site.promo.title} {site.promo.text}</span>
+              <span className="eyebrow !bg-coral/10 !text-coral">🔥 {site.promo.title}</span>
               <h3 className="mt-3 font-display font-bold text-2xl sm:text-3xl text-ink">
                 {prodlenka.title} 🎒
               </h3>
