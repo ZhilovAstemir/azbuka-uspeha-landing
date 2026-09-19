@@ -105,7 +105,7 @@ export function Programs() {
                 </div>
                 <h3 className="font-display font-bold text-lg text-ink mb-2">{p.title}</h3>
                 <p className="text-ink-soft font-medium leading-relaxed mb-4 flex-1">{p.text}</p>
-                <span className="inline-block self-start text-xs font-extrabold px-3 py-1.5 rounded-full text-white" style={{ background: p.color }}>
+                <span className="inline-block self-start text-[0.8rem] font-extrabold px-3 py-1.5 rounded-full text-white" style={{ background: p.color }}>
                   {p.age}
                 </span>
               </TiltCard>

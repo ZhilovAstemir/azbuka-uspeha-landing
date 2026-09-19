@@ -59,7 +59,7 @@ export function LeadForm() {
       <h3 className="font-display font-bold text-2xl text-ink mb-6">Оставить заявку</h3>
 
       <label className="block mb-4">
-        <span className="block text-sm font-bold text-ink-soft mb-1.5">Ваше имя</span>
+        <span className="block text-[0.95rem] font-bold text-ink-soft mb-1.5">Ваше имя</span>
         <input
           name="name"
           required
@@ -69,7 +69,7 @@ export function LeadForm() {
       </label>
 
       <label className="block mb-4">
-        <span className="block text-sm font-bold text-ink-soft mb-1.5">Телефон</span>
+        <span className="block text-[0.95rem] font-bold text-ink-soft mb-1.5">Телефон</span>
         <input
           name="phone"
           type="tel"
@@ -81,7 +81,7 @@ export function LeadForm() {
       </label>
 
       <label className="block mb-6">
-        <span className="block text-sm font-bold text-ink-soft mb-1.5">Направление</span>
+        <span className="block text-[0.95rem] font-bold text-ink-soft mb-1.5">Направление</span>
         <select
           name="program"
           required
@@ -98,7 +98,7 @@ export function LeadForm() {
       <button type="submit" disabled={loading} className="btn btn-primary btn-lg btn-block disabled:opacity-70">
         {loading ? "Отправляем…" : "Записаться"}
       </button>
-      <p className="text-xs text-ink-soft mt-4 text-center font-medium">
+      <p className="text-sm text-ink-soft mt-4 text-center font-medium">
         Нажимая кнопку, вы даёте согласие на обработку персональных данных в соответствии с{" "}
         <a href="/privacy" target="_blank" className="text-brand underline">политикой конфиденциальности</a>.
       </p>

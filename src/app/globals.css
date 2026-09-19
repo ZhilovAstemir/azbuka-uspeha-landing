@@ -35,9 +35,15 @@
   min-width: 0;
 }
 html {
+  /* Базовый размер чуть крупнее стандартных 16px: все размеры на сайте в rem,
+     поэтому текст, заголовки и отступы масштабируются согласованно. */
+  font-size: 17px;
   scroll-behavior: smooth;
   scroll-padding-top: 84px;
   -webkit-text-size-adjust: 100%;
+}
+@media (min-width: 1024px) {
+  html { font-size: 18px; }
 }
 body {
   background: var(--color-cream);
