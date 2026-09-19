@@ -16,7 +16,7 @@ export function Hero() {
             🔥 {site.promo.title}
           </span>
 
-          <h1 className="mt-5 font-display font-bold text-[clamp(calc(2.2rem-4px),calc(5.2vw-4px),calc(4rem-4px))] leading-[1.05] text-ink">
+          <h1 className="mt-5 font-display font-bold text-[clamp(calc(2.2rem-4px),calc(5.2vw-4px),calc(4rem-4px))] leading-[1.05] text-brand">
             От первых знаний —{" "}
             <span className="grad-text">к профессиям</span>{" "}
             <span className="grad-text-2">будущего</span>
