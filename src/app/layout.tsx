@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     url: site.url,
     siteName: site.name,
     title: `${site.name} — ${site.tagline}`,
-    description: `${site.motto}. Дети ${site.ages}. Продлёнка со скидкой 20% первым 10 записавшимся. ${site.address}.`,
+    description: `${site.motto}. Дети ${site.ages}. Продлёнка со скидкой 20%. ${site.address}.`,
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
