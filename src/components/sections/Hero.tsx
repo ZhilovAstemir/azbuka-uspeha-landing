@@ -13,7 +13,7 @@ export function Hero() {
         {/* Левая колонка — контент */}
         <div className="max-w-xl">
           <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 font-extrabold text-sm text-coral shadow-[var(--shadow-soft)]">
-            🔥 {site.promo.title} {site.promo.text}
+            🔥 {site.promo.title}
           </span>
 
           <h1 className="mt-5 font-display font-bold text-[clamp(2.2rem,5.2vw,4rem)] leading-[1.05] text-ink">
