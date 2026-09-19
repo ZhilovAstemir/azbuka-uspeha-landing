@@ -37,12 +37,12 @@ export function Hero() {
             {facts.map((f, i) => (
               <li key={f.label} className="leading-tight">
                 <span className={`block font-display font-bold text-2xl sm:text-3xl ${["text-coral", "text-brand", "text-teal"][i]}`}>{f.value}</span>
-                <span className="text-xs sm:text-sm font-semibold text-ink-soft">{f.label}</span>
+                <span className="text-sm sm:text-base font-semibold text-ink-soft">{f.label}</span>
               </li>
             ))}
           </ul>
 
-          <p className="mt-6 text-sm font-semibold text-ink-soft">
+          <p className="mt-6 text-base font-semibold text-ink-soft">
             📍 {site.address} ·{" "}
             <a href={`tel:${site.phoneHref}`} className="inline-block py-1 text-brand hover:underline whitespace-nowrap">{site.phone}</a>
           </p>
