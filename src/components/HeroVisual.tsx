@@ -118,7 +118,7 @@ export default function HeroVisual() {
         style={{ x: pCard1.x, y: pCard1.y }}
         className="absolute -right-2 top-[14%] w-[34%] aspect-[3/4] max-w-[180px]"
       >
-        <motion.div style={{ y: cardY }} className="w-full h-full rounded-3xl overflow-hidden shadow-[var(--shadow-soft)] ring-4 ring-white rotate-6 animate-floaty">
+        <motion.div style={{ y: cardY }} className="relative w-full h-full rounded-3xl overflow-hidden shadow-[var(--shadow-soft)] ring-4 ring-white rotate-6 animate-floaty">
           <Image src="/images/post7-prodlenka.jpg" alt="" fill className="object-cover" sizes="180px" />
         </motion.div>
       </motion.div>
@@ -128,7 +128,7 @@ export default function HeroVisual() {
         style={{ x: pCard2.x, y: pCard2.y }}
         className="absolute -left-2 bottom-[8%] w-[32%] aspect-[3/4] max-w-[170px]"
       >
-        <motion.div style={{ y: cardY }} className="w-full h-full rounded-3xl overflow-hidden shadow-[var(--shadow-soft)] ring-4 ring-white -rotate-6 animate-floaty [animation-delay:-2.5s]">
+        <motion.div style={{ y: cardY }} className="relative w-full h-full rounded-3xl overflow-hidden shadow-[var(--shadow-soft)] ring-4 ring-white -rotate-6 animate-floaty [animation-delay:-2.5s]">
           <Image src="/images/post4-english-junior.jpg" alt="" fill className="object-cover" sizes="170px" />
         </motion.div>
       </motion.div>
