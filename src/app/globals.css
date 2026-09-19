@@ -1,23 +1,24 @@
 @import "tailwindcss";
 
 /* ============================================================
-   Дизайн-система «Азбука Успеха»
-   Tailwind v4 — токены задаются прямо в CSS (@theme).
+   Дизайн-система «Азбука успеха»
+   Палитра взята с логотипа центра:
+   красный #D91119 · жёлтый #E6B632 · зелёный #459E34 · синий #485D9C
    ============================================================ */
 @theme {
-  /* Бренд-палитра */
-  --color-brand: #7b61ff; /* основной фиолетовый */
-  --color-brand-dark: #5b3fe0;
-  --color-coral: #ff6b6b;
-  --color-teal: #2ec4b6;
-  --color-sky: #38b6ff;
-  --color-sun: #ffc93c;
-  --color-pink: #ff7eb3;
-  --color-ink: #2d2a45; /* тёмный текст */
-  --color-ink-soft: #5c5875;
-  --color-cream: #fff9f0; /* тёплый фон */
-  --color-lav: #f3eeff; /* лавандовый фон секций */
-  --color-mint: #eafbf8;
+  /* Бренд-палитра (имена сохранены, значения — с логотипа) */
+  --color-brand: #4460a8; /* синий — основной, кнопки, ссылки */
+  --color-brand-dark: #2f4a8c;
+  --color-coral: #d91119; /* красный «АЗБУКА» — акции, акценты */
+  --color-pink: #f28c28; /* оранжевый из буквы «А» */
+  --color-sun: #e6b632; /* жёлтый */
+  --color-teal: #459e34; /* зелёный — галочки, стрелка логотипа */
+  --color-sky: #4a9bd1; /* голубой из кольца логотипа */
+  --color-ink: #2b3350; /* тёмно-синий текст */
+  --color-ink-soft: #5b6382;
+  --color-cream: #fffcf5; /* тёплый фон */
+  --color-lav: #eef3fb; /* светло-синий фон секций */
+  --color-mint: #f2f8ea; /* светло-зелёный фон секций */
 
   /* Шрифты (значения подставляет next/font) */
   --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
@@ -25,8 +26,8 @@
 
   /* Радиусы и тени */
   --radius-xl2: 1.75rem;
-  --shadow-soft: 0 18px 50px -12px rgb(45 42 69 / 0.18);
-  --shadow-brand: 0 18px 45px -10px rgb(123 97 255 / 0.5);
+  --shadow-soft: 0 18px 50px -12px rgb(43 51 80 / 0.16);
+  --shadow-brand: 0 18px 45px -10px rgb(68 96 168 / 0.5);
 }
 
 /* ---------------- База ---------------- */
@@ -72,14 +73,16 @@ body {
     border-radius: 999px;
   }
 
+  /* красно-оранжевый градиент буквы «А» с логотипа */
   .grad-text {
-    background: linear-gradient(120deg, var(--color-brand), var(--color-pink));
+    background: linear-gradient(120deg, var(--color-coral), var(--color-pink));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
+  /* сине-зелёный градиент кольца логотипа */
   .grad-text-2 {
-    background: linear-gradient(120deg, var(--color-coral), var(--color-sun));
+    background: linear-gradient(120deg, var(--color-brand), var(--color-teal));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -110,7 +113,15 @@ body {
   }
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 22px 55px -8px rgb(123 97 255 / 0.6);
+    box-shadow: 0 22px 55px -8px rgb(68 96 168 / 0.6);
+  }
+  .btn-accent {
+    background: linear-gradient(120deg, var(--color-coral), var(--color-pink));
+    color: #fff;
+    box-shadow: 0 18px 45px -10px rgb(217 17 25 / 0.45);
+  }
+  .btn-accent:hover {
+    transform: translateY(-2px);
   }
   .btn-ghost {
     background: #fff;
@@ -157,9 +168,13 @@ body {
   0%, 100% { transform: translateY(0); opacity: 1; }
   50% { transform: translateY(8px); opacity: 0.4; }
 }
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
 
 .animate-blob { animation: blob 16s ease-in-out infinite; }
 .animate-floaty { animation: floaty 5s ease-in-out infinite; }
+.animate-spin-slow { animation: spin-slow 40s linear infinite; }
 
 .marquee-track {
   display: flex;
@@ -173,5 +188,6 @@ body {
   html { scroll-behavior: auto; }
   .animate-blob,
   .animate-floaty,
+  .animate-spin-slow,
   .marquee-track { animation: none !important; }
 }

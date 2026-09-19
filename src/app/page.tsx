@@ -8,7 +8,6 @@ import { Steps } from "@/components/sections/Steps";
 import { Teachers } from "@/components/sections/Teachers";
 import { Reviews } from "@/components/sections/Reviews";
 import { Prices } from "@/components/sections/Prices";
-import { InstagramFeed } from "@/components/sections/InstagramFeed";
 import { Faq } from "@/components/sections/Faq";
 import { Contacts } from "@/components/sections/Contacts";
 import { Footer } from "@/components/sections/Footer";
@@ -28,7 +27,6 @@ export default function Home() {
         <Teachers />
         <Reviews />
         <Prices />
-        <InstagramFeed />
         <Faq />
         <Contacts />
       </main>

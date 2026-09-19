@@ -1,18 +1,18 @@
 import { site, facts } from "@/lib/content";
-import Hero3D from "@/components/Hero3D";
+import HeroVisual from "@/components/HeroVisual";
 
 export function Hero() {
   return (
     <section id="hero" className="relative min-h-[100svh] flex items-start lg:items-center overflow-hidden pt-28 pb-16">
-      {/* мягкие цветные пятна на фоне всей секции */}
-      <div className="pointer-events-none absolute -top-24 -left-24 w-[440px] h-[440px] rounded-full bg-brand/20 blur-3xl animate-blob" />
-      <div className="pointer-events-none absolute top-1/3 -right-24 w-[420px] h-[420px] rounded-full bg-pink/20 blur-3xl animate-blob [animation-delay:-6s]" />
+      {/* мягкие цветные пятна в цветах логотипа */}
+      <div className="pointer-events-none absolute -top-24 -left-24 w-[440px] h-[440px] rounded-full bg-sun/25 blur-3xl animate-blob" />
+      <div className="pointer-events-none absolute top-1/3 -right-24 w-[420px] h-[420px] rounded-full bg-sky/20 blur-3xl animate-blob [animation-delay:-6s]" />
       <div className="pointer-events-none absolute -bottom-24 left-1/4 w-[420px] h-[420px] rounded-full bg-teal/15 blur-3xl animate-blob [animation-delay:-3s]" />
 
-      <div className="container-x relative z-10 grid lg:grid-cols-2 gap-10 lg:gap-8 items-center">
+      <div className="container-x relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
         {/* Левая колонка — контент */}
         <div className="max-w-xl">
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur px-4 py-2 font-extrabold text-sm shadow-[var(--shadow-soft)]">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 font-extrabold text-sm text-coral shadow-[var(--shadow-soft)]">
             🔥 {site.promo.title} {site.promo.text}
           </span>
 
@@ -34,22 +34,23 @@ export function Hero() {
           </div>
 
           <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-4">
-            {facts.map((f) => (
+            {facts.map((f, i) => (
               <li key={f.label} className="leading-tight">
-                <span className="block font-display font-bold text-3xl text-brand">{f.value}</span>
+                <span className={`block font-display font-bold text-3xl ${["text-coral", "text-brand", "text-teal"][i]}`}>{f.value}</span>
                 <span className="text-sm font-semibold text-ink-soft">{f.label}</span>
               </li>
             ))}
           </ul>
 
           <p className="mt-6 text-sm font-semibold text-ink-soft">
-            📍 {site.address} · <a href={`tel:${site.phoneHref}`} className="text-brand hover:underline">{site.phone}</a>
+            📍 {site.address} ·{" "}
+            <a href={`tel:${site.phoneHref}`} className="text-brand hover:underline whitespace-nowrap">{site.phone}</a>
           </p>
         </div>
 
-        {/* Правая колонка — 3D-сцена в собственной области */}
-        <div className="relative h-[340px] sm:h-[420px] lg:h-[560px] rounded-[2rem] lg:rounded-none overflow-hidden lg:overflow-visible bg-gradient-to-br from-white/60 to-brand/5 lg:bg-none">
-          <Hero3D />
+        {/* Правая колонка — живая фото-композиция */}
+        <div className="relative mx-auto w-full max-w-[420px] lg:max-w-[560px] aspect-square">
+          <HeroVisual />
         </div>
       </div>
 

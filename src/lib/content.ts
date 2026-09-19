@@ -61,14 +61,14 @@ export const advantages = [
 ];
 
 export const programs = [
-  { emoji: "📚", color: "#7b61ff", title: "Подготовка к школе", text: "Знакомим с будущими школьными задачами: учим концентрироваться, работать по инструкции, развиваем память и мышление.", age: "дошкольники", image: "/images/post7-prodlenka.jpg" },
-  { emoji: "🔤", color: "#2ec4b6", title: "Английский для младших", text: "Дети пишут, двигаются, играют и выполняют задания — так слова запоминаются легче, а интерес к языку сохраняется.", age: "младшие школьники", image: "/images/post4-english-junior.jpg" },
-  { emoji: "🎓", color: "#38b6ff", title: "Английский для старшеклассников", text: "Живая английская речь с преподавателем с сильной языковой базой и международным опытом. Набор открыт.", age: "14–25 лет" },
-  { emoji: "♟️", color: "#ffc93c", title: "Шахматы", text: "Логика, стратегическое мышление и умение принимать решения.", age: "школьники" },
-  { emoji: "⚡", color: "#ff9f1c", title: "Скорочтение", text: "Учим читать быстрее и лучше понимать прочитанное.", age: "школьники" },
-  { emoji: "✍️", color: "#ff6b6b", title: "Каллиграфия", text: "Красивый почерк, аккуратность и усидчивость.", age: "школьники" },
-  { emoji: "🎭", color: "#ff7eb3", title: "Театр и творчество", text: "Раскрываем способности, учим выступать и не бояться сцены.", age: "школьники" },
-  { emoji: "🧠", color: "#a66cff", title: "Нейроупражнения", text: "Баланс, координация, речь и внимание. Мозг учится обрабатывать разные виды информации одновременно.", age: "все возрасты", image: "/images/post10-neuro-1.jpg" },
+  { emoji: "📚", color: "#4460a8", title: "Подготовка к школе", text: "Знакомим с будущими школьными задачами: учим концентрироваться, работать по инструкции, развиваем память и мышление.", age: "дошкольники", image: "/images/post7-prodlenka.jpg" },
+  { emoji: "🔤", color: "#459e34", title: "Английский для младших", text: "Дети пишут, двигаются, играют и выполняют задания — так слова запоминаются легче, а интерес к языку сохраняется.", age: "младшие школьники", image: "/images/post4-english-junior.jpg" },
+  { emoji: "🎓", color: "#4a9bd1", title: "Английский для старшеклассников", text: "Живая английская речь с преподавателем с сильной языковой базой и международным опытом. Набор открыт.", age: "14–25 лет" },
+  { emoji: "♟️", color: "#e6b632", title: "Шахматы", text: "Логика, стратегическое мышление и умение принимать решения.", age: "школьники" },
+  { emoji: "⚡", color: "#f28c28", title: "Скорочтение", text: "Учим читать быстрее и лучше понимать прочитанное.", age: "школьники" },
+  { emoji: "✍️", color: "#d91119", title: "Каллиграфия", text: "Красивый почерк, аккуратность и усидчивость.", age: "школьники" },
+  { emoji: "🎭", color: "#986c9e", title: "Театр и творчество", text: "Раскрываем способности, учим выступать и не бояться сцены.", age: "школьники" },
+  { emoji: "🧠", color: "#4460a8", title: "Нейроупражнения", text: "Баланс, координация, речь и внимание. Мозг учится обрабатывать разные виды информации одновременно.", age: "все возрасты", image: "/images/post10-neuro-1.jpg" },
 ];
 
 /** Что входит в продлёнку (из поста от 03.09.2026) */
@@ -155,21 +155,10 @@ export const faq = [
   { q: "Где вы находитесь?", a: "В центре Нальчика: ул. Атажукина, 18." },
 ];
 
-/** Посты Instagram для блока «Мы в Instagram» (обложки скачаны в /public/images) */
-export const instagramPosts = [
-  { image: "/images/post1-prodlenka.jpg", url: "https://www.instagram.com/p/DdcFB5QgHmN/", caption: "Подробнее о группе продлённого дня" },
-  { image: "/images/post2-podgotovka.jpg", url: "https://www.instagram.com/p/DdUTR7MgWj6/", caption: "Подготовка к школе" },
-  { image: "/images/post4-english-junior.jpg", url: "https://www.instagram.com/p/DdHVpbLgado/", caption: "Английский для младших" },
-  { image: "/images/post10-neuro-1.jpg", url: "https://www.instagram.com/p/DcmCKTQgOc_/", caption: "Развиваем мозг через движение" },
-  { image: "/images/post8-den-znaniy.jpg", url: "https://www.instagram.com/p/DcvS0g7A1bV/", caption: "С Днём знаний!" },
-  { image: "/images/post9-prodlenka.jpg", url: "https://www.instagram.com/p/DcomDSiAM4t/", caption: "Продлёнка: время после школы с пользой" },
-];
-
 export const navLinks = [
   { href: "#programs", label: "Направления" },
   { href: "#about", label: "О центре" },
   { href: "#teachers", label: "Педагоги" },
   { href: "#prices", label: "Форматы" },
-  { href: "#instagram", label: "Instagram" },
   { href: "#contacts", label: "Контакты" },
 ];

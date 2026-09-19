@@ -27,7 +27,7 @@ export function Footer() {
             <li><a href="#about" className="hover:text-white transition-colors">О нас</a></li>
             <li><a href="#teachers" className="hover:text-white transition-colors">Педагоги</a></li>
             <li><a href="#prices" className="hover:text-white transition-colors">Форматы</a></li>
-            <li><a href="#instagram" className="hover:text-white transition-colors">Мы в Instagram</a></li>
+            <li><a href={site.socials.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Мы в Instagram</a></li>
           </ul>
         </div>
 
