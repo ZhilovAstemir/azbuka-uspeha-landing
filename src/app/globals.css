@@ -1,26 +1,177 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================
+   Дизайн-система «Азбука Успеха»
+   Tailwind v4 — токены задаются прямо в CSS (@theme).
+   ============================================================ */
+@theme {
+  /* Бренд-палитра */
+  --color-brand: #7b61ff; /* основной фиолетовый */
+  --color-brand-dark: #5b3fe0;
+  --color-coral: #ff6b6b;
+  --color-teal: #2ec4b6;
+  --color-sky: #38b6ff;
+  --color-sun: #ffc93c;
+  --color-pink: #ff7eb3;
+  --color-ink: #2d2a45; /* тёмный текст */
+  --color-ink-soft: #5c5875;
+  --color-cream: #fff9f0; /* тёплый фон */
+  --color-lav: #f3eeff; /* лавандовый фон секций */
+  --color-mint: #eafbf8;
+
+  /* Шрифты (значения подставляет next/font) */
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-comfortaa), var(--font-nunito), sans-serif;
+
+  /* Радиусы и тени */
+  --radius-xl2: 1.75rem;
+  --shadow-soft: 0 18px 50px -12px rgb(45 42 69 / 0.18);
+  --shadow-brand: 0 18px 45px -10px rgb(123 97 255 / 0.5);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ---------------- База ---------------- */
+* {
+  min-width: 0;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+::selection {
+  background: var(--color-brand);
+  color: #fff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ---------------- Утилиты-компоненты ---------------- */
+@layer components {
+  .container-x {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-brand);
+    background: color-mix(in srgb, var(--color-brand) 12%, transparent);
+    padding: 6px 14px;
+    border-radius: 999px;
+  }
+
+  .grad-text {
+    background: linear-gradient(120deg, var(--color-brand), var(--color-pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .grad-text-2 {
+    background: linear-gradient(120deg, var(--color-coral), var(--color-sun));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 15px 26px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    white-space: nowrap;
+    text-align: center;
+  }
+  .btn:active {
+    transform: translateY(1px) scale(0.99);
+  }
+  .btn-primary {
+    background: linear-gradient(120deg, var(--color-brand), var(--color-brand-dark));
+    color: #fff;
+    box-shadow: var(--shadow-brand);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 22px 55px -8px rgb(123 97 255 / 0.6);
+  }
+  .btn-ghost {
+    background: #fff;
+    color: var(--color-ink);
+    box-shadow: var(--shadow-soft);
+  }
+  .btn-ghost:hover {
+    transform: translateY(-2px);
+  }
+  .btn-lg {
+    padding: 18px 32px;
+    font-size: 1.05rem;
+  }
+  .btn-sm {
+    padding: 11px 20px;
+    font-size: 0.92rem;
+  }
+  .btn-block {
+    width: 100%;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: var(--radius-xl2);
+    box-shadow: var(--shadow-soft);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ---------------- Анимации ---------------- */
+@keyframes blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.08); }
+  66% { transform: translate(-25px, 20px) scale(0.94); }
+}
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes bounce-down {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(8px); opacity: 0.4; }
+}
+
+.animate-blob { animation: blob 16s ease-in-out infinite; }
+.animate-floaty { animation: floaty 5s ease-in-out infinite; }
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+/* ---------------- Reduced motion ---------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-blob,
+  .animate-floaty,
+  .marquee-track { animation: none !important; }
 }

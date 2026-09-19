@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Азбука Успеха — лендинг центра детского развития
 
-## Getting Started
+Современный одностраничный сайт на **Next.js 16 + React 19 + TypeScript + Tailwind CSS v4**
+с 3D-эффектами (Three.js), анимациями (Framer Motion), готовой SEO-разметкой и подключением аналитики.
 
-First, run the development server:
+## Быстрый старт
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install       # установить зависимости (уже сделано)
+npm run dev       # запустить локально: http://localhost:3000
+npm run build     # production-сборка
+npm run start     # запустить собранную версию
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Где менять контент
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Почти весь текст, цены, программы, педагоги, отзывы и контакты собраны в одном файле:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+> **`src/lib/content.ts`**
 
-## Learn More
+Отредактируйте значения там — сайт обновится автоматически. Что внутри:
 
-To learn more about Next.js, take a look at the following resources:
+- `site` — название, телефон, email, адрес, часы работы, соцсети, **ID аналитики**;
+- `programs` — направления (карточки);
+- `advantages`, `teachers`, `reviews`, `prices`, `faq`, `stats` — соответствующие блоки.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Структура
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+├─ app/
+│  ├─ layout.tsx      # шрифты, SEO-метаданные, JSON-LD, аналитика
+│  ├─ page.tsx        # сборка секций
+│  ├─ globals.css     # дизайн-система (цвета, кнопки, анимации)
+│  ├─ robots.ts       # /robots.txt
+│  └─ sitemap.ts      # /sitemap.xml
+├─ components/
+│  ├─ Hero3D.tsx      # 3D-сцена: парящие кубики-буквы (Three.js)
+│  ├─ Header.tsx      # шапка + мобильное меню
+│  ├─ LeadForm.tsx    # форма заявки
+│  ├─ TiltCard.tsx    # 3D-наклон карточек
+│  ├─ Analytics.tsx   # Яндекс.Метрика + Google Analytics 4
+│  └─ sections/       # Hero, Programs, About, Prices, Contacts и др.
+└─ lib/content.ts     # ← ВЕСЬ РЕДАКТИРУЕМЫЙ КОНТЕНТ
+```
 
-## Deploy on Vercel
+## Аналитика (метрики)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+В `src/lib/content.ts` → `site.analytics` вставьте свои идентификаторы:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```ts
+analytics: {
+  yandexMetrikaId: "12345678",     // номер счётчика Яндекс.Метрики
+  gaMeasurementId: "G-XXXXXXXXXX", // ID Google Analytics 4
+}
+```
+
+Пока поля пустые — счётчики не грузятся (сайт остаётся лёгким). При отправке формы
+уже отправляется цель `lead` в Метрику и событие `generate_lead` в GA4.
+
+## Форма заявки
+
+Сейчас форма (`src/components/LeadForm.tsx`) имитирует отправку и пишет данные в консоль.
+Чтобы заявки реально приходили, подключите один из вариантов (см. комментарий `TODO` в файле):
+
+- API-роут `src/app/api/lead/route.ts` с отправкой в **Telegram-бота**, на почту или в CRM;
+- сторонний сервис форм (Formspree, Getform и т. п.).
+
+## Что заменить на реальные данные
+
+- [ ] Контакты, адрес, соцсети — `src/lib/content.ts` → `site`
+- [ ] Домен сайта — `site.url` (для SEO и sitemap)
+- [ ] Тексты программ, цены, педагоги, отзывы — `src/lib/content.ts`
+- [ ] Фотографии центра — сейчас стоят эмодзи-заглушки в секциях `About`, `Teachers`, `Programs`
+- [ ] Картинка для соцсетей — положите файл `public/og-image.jpg` (1200×630)
+- [ ] ID Яндекс.Метрики и GA4
+- [ ] Реальная отправка формы заявки
+
+## Деплой
+
+Проект без изменений разворачивается на **Vercel** (рекомендуется для Next.js),
+а также на любом хостинге с Node.js через `npm run build && npm run start`.
+
+## 3D-эффекты
+
+- **Hero3D** — парящие кубики с буквами и цифрами (тема «Азбука»), реагируют на курсор.
+- **TiltCard** — карточки наклоняются к курсору (эффект глубины).
+- Плавающие цветные пятна, бегущая строка, счётчики и появление блоков при прокрутке.
+- Всё уважает системную настройку «уменьшить движение» (`prefers-reduced-motion`).
