@@ -57,7 +57,7 @@ export function Programs() {
             <div className="relative p-8 sm:p-10">
               <span className="eyebrow !bg-white/10 !text-white">🛡️ {academy.audience}</span>
               <h3 className="mt-3 font-display font-bold text-2xl sm:text-3xl">
-                <span className="text-coral">Академия</span> кибербезопасности{" "}
+                Академия <span className="text-coral">кибербезопасности</span>{" "}
                 <span className="text-coral">{academy.name.split(" ")[0]}</span>{" "}
                 <span className="text-white">{academy.name.split(" ").slice(1).join(" ")}</span>
               </h3>
