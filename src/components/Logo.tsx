@@ -6,8 +6,8 @@ export function Logo({ footer = false }: { footer?: boolean }) {
       <Image
         src="/images/avatar.jpg"
         alt="Логотип «Азбука успеха»"
-        width={44}
-        height={44}
+        width={96}
+        height={96}
         className="rounded-full shadow-[var(--shadow-soft)] bg-white w-9 h-9 sm:w-11 sm:h-11"
         priority
       />

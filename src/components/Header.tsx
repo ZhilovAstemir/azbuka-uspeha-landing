@@ -43,14 +43,14 @@ export function Header() {
         <div className="container-x flex items-center justify-between gap-2 h-[68px] min-w-0">
           <Logo />
 
-          <nav className="hidden lg:flex items-center gap-7" aria-label="Основная навигация">
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-7 mx-4" aria-label="Основная навигация">
             {navLinks.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 target={"external" in l && l.external ? "_blank" : undefined}
                 rel={"external" in l && l.external ? "noopener noreferrer" : undefined}
-                className="font-bold text-ink/80 hover:text-brand transition-colors"
+                className="font-bold text-[15px] xl:text-base whitespace-nowrap text-ink/80 hover:text-brand transition-colors"
               >
                 {l.label}
               </a>
@@ -58,7 +58,7 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            <a href={`tel:${site.phoneHref}`} className="hidden md:inline font-extrabold text-ink hover:text-brand transition-colors">
+            <a href={`tel:${site.phoneHref}`} className="hidden md:inline lg:hidden xl:inline font-extrabold text-ink hover:text-brand transition-colors whitespace-nowrap">
               {site.phone}
             </a>
             <a href="/#contacts" className="btn btn-primary btn-sm hidden sm:inline-flex">
