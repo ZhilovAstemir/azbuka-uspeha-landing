@@ -22,7 +22,7 @@ export function Programs() {
                 {prodlenka.title} 🎒
               </h3>
               <p className="mt-3 text-ink-soft font-semibold text-lg">{prodlenka.lead}</p>
-              <ul className="mt-5 grid sm:grid-cols-2 gap-2 text-ink font-semibold">
+              <ul className="mt-5 grid sm:grid-cols-2 gap-2 text-[16px] text-ink font-semibold">
                 {prodlenka.includes.map((i) => (
                   <li key={i}>{i}</li>
                 ))}
@@ -56,7 +56,7 @@ export function Programs() {
 
             <div className="relative p-6 sm:p-10">
               <span className="eyebrow !bg-white/10 !text-white">🛡️ {academy.audience}</span>
-              <h3 className="mt-3 font-display font-bold text-xl sm:text-3xl break-words">
+              <h3 className="mt-3 font-display font-bold text-[calc(1.25rem-2px)] sm:text-[calc(1.875rem-2px)] leading-tight break-words">
                 Академия <span className="text-coral">кибербезопасности</span>{" "}
                 <span className="text-coral">{academy.name.split(" ")[0]}</span>{" "}
                 <span className="text-white">{academy.name.split(" ").slice(1).join(" ")}</span>

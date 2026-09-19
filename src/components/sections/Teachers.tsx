@@ -40,7 +40,7 @@ export function Teachers() {
               <p className="mt-3 text-white/90 font-semibold">
                 Приходите в центр: покажем кабинеты, познакомим с педагогами и ответим на все вопросы.
               </p>
-              <span className="btn btn-ghost mt-6">Записаться на встречу</span>
+              <span className="btn btn-ghost mt-6 whitespace-normal max-w-full">Записаться на встречу</span>
             </a>
           </Reveal>
         </div>
