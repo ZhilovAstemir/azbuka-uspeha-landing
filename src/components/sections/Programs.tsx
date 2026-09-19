@@ -62,7 +62,7 @@ export function Programs() {
                 <span className="text-white">{academy.name.split(" ").slice(1).join(" ")}</span>
               </h3>
               <p className="mt-3 text-white/80 font-semibold text-lg">{academy.lead}</p>
-              <ul className="mt-5 grid sm:grid-cols-2 gap-2 font-semibold">
+              <ul className="mt-5 grid sm:grid-cols-2 gap-2 text-[16px] font-semibold">
                 {academy.points.map((p) => (
                   <li key={p} className="flex items-start gap-2">
                     <span className="text-teal">✔</span>
