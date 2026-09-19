@@ -18,6 +18,7 @@ export function Footer() {
             {["Продлёнка", "Подготовка к школе", "Английский язык", "Программирование", "Шахматы и скорочтение"].map((t) => (
               <li key={t}><a href="/#programs" className="hover:text-white transition-colors">{t}</a></li>
             ))}
+            <li><a href="https://school-landing-iota.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Академия кибербезопасности ↗</a></li>
           </ul>
         </div>
 

@@ -1,4 +1,4 @@
-import { programs, prodlenka, site } from "@/lib/content";
+import { programs, prodlenka, academy, site } from "@/lib/content";
 import { SectionHead } from "../SectionHead";
 import { Reveal } from "../Reveal";
 import { TiltCard } from "../TiltCard";
@@ -10,7 +10,7 @@ export function Programs() {
         <SectionHead
           eyebrow="Наши направления"
           title="Программы для детей от 3 до 17 лет"
-          sub="Очные занятия в центре Нальчика — от подготовки к школе до английского для старшеклассников."
+          sub="Очные занятия в центре Нальчика — от подготовки к школе до английского, программирования и кибербезопасности для старшеклассников."
         />
 
         {/* Акцент: продлёнка */}
@@ -44,6 +44,48 @@ export function Programs() {
                 <div className="text-[6rem] leading-none animate-floaty">🎒</div>
                 <div className="mt-2 font-display font-bold text-xl">после школы — с пользой</div>
               </div>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* Акцент: Академия кибербезопасности (отдельный лендинг) */}
+        <Reveal>
+          <div id="academy" className="relative overflow-hidden rounded-[var(--radius-xl2)] bg-ink text-white mb-8 grid md:grid-cols-[1.35fr_1fr] shadow-[var(--shadow-soft)]">
+            <div className="pointer-events-none absolute -top-24 -right-24 w-80 h-80 rounded-full bg-teal/30 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-32 left-1/4 w-80 h-80 rounded-full bg-brand/40 blur-3xl" />
+
+            <div className="relative p-8 sm:p-10">
+              <span className="eyebrow !bg-white/10 !text-white">🛡️ {academy.audience}</span>
+              <h3 className="mt-3 font-display font-bold text-2xl sm:text-3xl">
+                {academy.title} <span className="text-teal">{academy.name}</span>
+              </h3>
+              <p className="mt-3 text-white/80 font-semibold text-lg">{academy.lead}</p>
+              <ul className="mt-5 grid sm:grid-cols-2 gap-2 font-semibold">
+                {academy.points.map((p) => (
+                  <li key={p} className="flex items-start gap-2">
+                    <span className="text-teal">✔</span>
+                    {p}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-7 flex flex-wrap gap-3 items-center">
+                <a href={academy.url} target="_blank" rel="noopener noreferrer" className="btn btn-accent">
+                  Перейти на сайт Академии ↗
+                </a>
+                <a href="#contacts" className="btn btn-ghost">Спросить о наборе</a>
+              </div>
+            </div>
+
+            <div className="relative p-8 sm:p-10 md:border-l border-white/10 bg-white/[0.04] flex flex-col justify-center">
+              <div className="font-mono text-xs text-teal/80 mb-3">student@zeroday:~$ первое занятие</div>
+              <div className="flex flex-wrap gap-2">
+                {academy.stack.map((t) => (
+                  <span key={t} className="px-3 py-1.5 rounded-full border border-white/15 bg-white/5 text-sm font-semibold">
+                    {t}
+                  </span>
+                ))}
+              </div>
+              <p className="mt-5 text-sm text-white/60 font-medium">Red Team vs Blue Team — учим и атаковать, и защищать.</p>
             </div>
           </div>
         </Reveal>

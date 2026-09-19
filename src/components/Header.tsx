@@ -45,7 +45,13 @@ export function Header() {
 
           <nav className="hidden lg:flex items-center gap-7" aria-label="Основная навигация">
             {navLinks.map((l) => (
-              <a key={l.href} href={l.href} className="font-bold text-ink/80 hover:text-brand transition-colors">
+              <a
+                key={l.href}
+                href={l.href}
+                target={"external" in l && l.external ? "_blank" : undefined}
+                rel={"external" in l && l.external ? "noopener noreferrer" : undefined}
+                className="font-bold text-ink/80 hover:text-brand transition-colors"
+              >
                 {l.label}
               </a>
             ))}
@@ -93,6 +99,8 @@ export function Header() {
             <a
               key={l.href}
               href={l.href}
+              target={"external" in l && l.external ? "_blank" : undefined}
+              rel={"external" in l && l.external ? "noopener noreferrer" : undefined}
               onClick={() => setOpen(false)}
               className="text-2xl font-extrabold py-3 border-b border-ink/10 text-ink"
             >
