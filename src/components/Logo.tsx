@@ -8,11 +8,11 @@ export function Logo({ footer = false }: { footer?: boolean }) {
         alt="Логотип «Азбука успеха»"
         width={96}
         height={96}
-        className="rounded-full shadow-[var(--shadow-soft)] bg-white w-9 h-9 sm:w-11 sm:h-11 shrink-0 object-cover"
+        className="rounded-full shadow-[var(--shadow-soft)] bg-white w-[38px] h-[38px] sm:w-[48px] sm:h-[48px] shrink-0 object-cover"
         priority
       />
       <span
-        className={`font-display font-medium leading-none text-[0.85rem] sm:text-[0.95rem] whitespace-nowrap ${footer ? "text-white" : "text-ink"}`}
+        className={`font-display font-medium leading-none text-[14px] sm:text-[16px] whitespace-nowrap ${footer ? "text-white" : "text-ink"}`}
       >
         Азбука
         <br />

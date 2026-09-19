@@ -37,13 +37,13 @@
 html {
   /* Базовый размер чуть крупнее стандартных 16px: все размеры на сайте в rem,
      поэтому текст, заголовки и отступы масштабируются согласованно. */
-  font-size: 17px;
+  font-size: 18px;
   scroll-behavior: smooth;
   scroll-padding-top: 84px;
   -webkit-text-size-adjust: 100%;
 }
 @media (min-width: 1024px) {
-  html { font-size: 18px; }
+  html { font-size: 19px; }
 }
 body {
   background: var(--color-cream);
@@ -146,7 +146,7 @@ body {
     font-size: 1rem;
   }
   @media (min-width: 640px) {
-    .btn-lg { padding: 18px 32px; font-size: 1.05rem; }
+    .btn-lg { padding: 18px 28px; font-size: 1rem; }
   }
   .btn-sm {
     padding: 11px 20px;
@@ -157,6 +157,11 @@ body {
   }
   .btn svg {
     flex-shrink: 0;
+  }
+  /* Шапка не зависит от базового размера шрифта — все размеры в px */
+  header .btn {
+    font-size: 16px;
+    padding: 11px 20px;
   }
 
   .card {

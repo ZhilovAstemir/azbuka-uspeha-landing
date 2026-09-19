@@ -50,7 +50,7 @@ export function Header() {
                 href={l.href}
                 target={"external" in l && l.external ? "_blank" : undefined}
                 rel={"external" in l && l.external ? "noopener noreferrer" : undefined}
-                className="font-bold text-[15px] xl:text-base whitespace-nowrap text-ink/80 hover:text-brand transition-colors"
+                className="font-bold text-[15px] xl:text-[17px] whitespace-nowrap text-ink/80 hover:text-brand transition-colors"
               >
                 {l.label}
               </a>
@@ -58,7 +58,7 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            <a href={`tel:${site.phoneHref}`} className="hidden md:inline lg:hidden xl:inline font-extrabold text-ink hover:text-brand transition-colors whitespace-nowrap">
+            <a href={`tel:${site.phoneHref}`} className="hidden md:inline lg:hidden xl:inline text-[17px] font-extrabold text-ink hover:text-brand transition-colors whitespace-nowrap">
               {site.phone}
             </a>
             <a href="/#contacts" className="btn btn-primary btn-sm hidden sm:inline-flex">
@@ -66,7 +66,7 @@ export function Header() {
             </a>
 
             <button
-              className="lg:hidden relative w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-[var(--shadow-soft)] grid place-items-center shrink-0"
+              className="lg:hidden relative w-[42px] h-[42px] sm:w-[46px] sm:h-[46px] rounded-full bg-white shadow-[var(--shadow-soft)] grid place-items-center shrink-0"
               aria-label={open ? "Закрыть меню" : "Открыть меню"}
               aria-expanded={open}
               aria-controls="mobile-menu"
