@@ -8,7 +8,7 @@ export function Logo({ footer = false }: { footer?: boolean }) {
         alt="Логотип «Азбука успеха»"
         width={44}
         height={44}
-        className="rounded-full shadow-[var(--shadow-soft)]"
+        className="rounded-full shadow-[var(--shadow-soft)] bg-white"
         priority
       />
       <span
