@@ -3,7 +3,7 @@ import Hero3D from "@/components/Hero3D";
 
 export function Hero() {
   return (
-    <section id="hero" className="relative min-h-[100svh] flex items-center overflow-hidden pt-28 pb-16">
+    <section id="hero" className="relative min-h-[100svh] flex items-start lg:items-center overflow-hidden pt-28 pb-16">
       {/* мягкие цветные пятна на фоне всей секции */}
       <div className="pointer-events-none absolute -top-24 -left-24 w-[440px] h-[440px] rounded-full bg-brand/20 blur-3xl animate-blob" />
       <div className="pointer-events-none absolute top-1/3 -right-24 w-[420px] h-[420px] rounded-full bg-pink/20 blur-3xl animate-blob [animation-delay:-6s]" />
