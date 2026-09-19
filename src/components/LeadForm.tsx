@@ -55,7 +55,7 @@ export function LeadForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="card p-7 sm:p-8" noValidate>
+    <form onSubmit={onSubmit} className="card p-5 sm:p-8" noValidate>
       <h3 className="font-display font-bold text-2xl text-ink mb-6">Оставить заявку</h3>
 
       <label className="block mb-4">

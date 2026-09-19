@@ -15,7 +15,7 @@ export function Prices() {
           {formats.map((p, i) => (
             <Reveal key={p.title} delay={i * 0.08}>
               <article
-                className={`card h-full p-8 relative ${
+                className={`card h-full p-6 sm:p-8 relative ${
                   p.popular ? "md:-mt-4 ring-2 ring-brand shadow-[var(--shadow-brand)]" : ""
                 }`}
               >

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   motion,
   useMotionValue,
@@ -52,11 +52,22 @@ export default function HeroVisual() {
     return () => window.removeEventListener("pointermove", onMove);
   }, [mx, my, reduce]);
 
+  // Параллакс от прокрутки включаем только на широких экранах: на телефоне блок стоит
+  // под текстом, и сдвиг по scrollY уводил карточки и бейджи вниз, за границы композиции.
+  const [desktop, setDesktop] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const sync = () => setDesktop(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
   const { scrollY } = useScroll();
-  const ringRotate = useTransform(scrollY, [0, 800], [0, 120]);
-  const photoY = useTransform(scrollY, [0, 800], [0, 90]);
-  const cardY = useTransform(scrollY, [0, 800], [0, 160]);
-  const badgeY = useTransform(scrollY, [0, 800], [0, 220]);
+  const k = desktop && !reduce ? 1 : 0;
+  const ringRotate = useTransform(scrollY, [0, 800], [0, 120 * k]);
+  const photoY = useTransform(scrollY, [0, 800], [0, 90 * k]);
+  const cardY = useTransform(scrollY, [0, 800], [0, 160 * k]);
+  const badgeY = useTransform(scrollY, [0, 800], [0, 220 * k]);
 
   const pPhoto = useParallax(sx, sy, 14);
   const pCard1 = useParallax(sx, sy, 40);
@@ -124,12 +135,12 @@ export default function HeroVisual() {
 
       {/* Бейджи */}
       <motion.div {...pop(0.65)} style={{ x: pBadge.x, y: pBadge.y }} className="absolute left-[16%] sm:left-[30%] top-0">
-        <motion.div style={{ y: badgeY }} className="px-4 py-2 rounded-full bg-coral text-white font-extrabold text-sm shadow-lg animate-floaty [animation-delay:-1s]">
+        <motion.div style={{ y: badgeY }} className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-coral text-white font-extrabold text-xs sm:text-sm shadow-lg animate-floaty [animation-delay:-1s] whitespace-nowrap">
           🔥 −20% на продлёнку
         </motion.div>
       </motion.div>
-      <motion.div {...pop(0.8)} style={{ x: pBadge.x, y: pBadge.y }} className="absolute right-[6%] bottom-[6%]">
-        <motion.div style={{ y: badgeY }} className="px-4 py-2 rounded-full bg-white text-ink font-extrabold text-sm shadow-lg animate-floaty [animation-delay:-3.5s]">
+      <motion.div {...pop(0.8)} style={{ x: pBadge.x, y: pBadge.y }} className="absolute right-[2%] bottom-[2%]">
+        <motion.div style={{ y: badgeY }} className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white text-ink font-extrabold text-xs sm:text-sm shadow-lg animate-floaty [animation-delay:-3.5s] whitespace-nowrap">
           🎒 3–17 лет
         </motion.div>
       </motion.div>
@@ -155,7 +166,7 @@ function LetterTile({
   return (
     <motion.div
       style={{ x: p.x, y: p.y, background: bg }}
-      className="grid place-items-center w-12 h-12 sm:w-14 sm:h-14 rounded-2xl text-white font-display font-bold text-2xl shadow-lg animate-floaty"
+      className="grid place-items-center w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl text-white font-display font-bold text-xl sm:text-2xl shadow-lg animate-floaty"
     >
       {ch}
     </motion.div>

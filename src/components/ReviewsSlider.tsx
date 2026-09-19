@@ -106,8 +106,10 @@ export function ReviewsSlider() {
               type="button"
               onClick={() => goTo(i)}
               aria-label={`Отзывы, страница ${i + 1}`}
-              className={`h-2.5 rounded-full transition-all ${i === index ? "w-7 bg-brand" : "w-2.5 bg-ink/20 hover:bg-ink/40"}`}
-            />
+              className="grid place-items-center w-6 h-10"
+            >
+              <span className={`block h-2.5 rounded-full transition-all ${i === index ? "w-6 bg-brand" : "w-2.5 bg-ink/20"}`} />
+            </button>
           ))}
         </div>
         <button

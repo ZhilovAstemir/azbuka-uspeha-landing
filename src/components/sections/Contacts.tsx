@@ -26,11 +26,11 @@ export function Contacts() {
               { icon: "phone", label: "Телефон", value: site.phone, href: `tel:${site.phoneHref}` },
               { icon: "whatsapp", label: "WhatsApp", value: site.phone, href: site.socials.whatsapp, external: true },
             ].map((r) => (
-              <li key={r.label} className="flex items-center gap-4">
+              <li key={r.label} className="flex items-center gap-3 sm:gap-4 min-w-0">
                 <span className="grid place-items-center w-11 h-11 rounded-2xl bg-white/10 shrink-0">
                   <Icon name={r.icon} />
                 </span>
-                <span>
+                <span className="min-w-0 break-words">
                   <span className="block text-xs font-bold uppercase tracking-wider text-white/50">{r.label}</span>
                   {r.href ? (
                     <a href={r.href} target={r.external ? "_blank" : undefined} rel={r.external ? "noopener noreferrer" : undefined} className="font-bold hover:text-sun">
@@ -44,7 +44,7 @@ export function Contacts() {
             ))}
           </ul>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
             <a href={site.socials.whatsapp} target="_blank" rel="noopener noreferrer" className="btn btn-accent">
               <Icon name="whatsapp" className="w-4 h-4" strokeWidth={2} /> Написать в WhatsApp
             </a>

@@ -10,7 +10,7 @@ export function Steps() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.08}>
-              <div className="card h-full p-7 relative">
+              <div className="card h-full p-6 sm:p-7 relative">
                 <div className="font-display font-bold text-5xl grad-text mb-3">
                   {String(i + 1).padStart(2, "0")}
                 </div>

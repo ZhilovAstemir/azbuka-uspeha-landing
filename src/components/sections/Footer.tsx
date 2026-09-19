@@ -43,7 +43,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container-x flex flex-col sm:flex-row items-center justify-between gap-3 py-6 text-sm">
+        <div className="container-x flex flex-col sm:flex-row items-center justify-between gap-3 py-6 pb-20 sm:pb-6 text-sm text-center sm:text-left">
           <span>© {new Date().getFullYear()} «{site.name}», {site.city} · {site.legal.operator}, ИНН {site.legal.inn}</span>
           <a href="/privacy" className="hover:text-white transition-colors">Политика конфиденциальности</a>
         </div>

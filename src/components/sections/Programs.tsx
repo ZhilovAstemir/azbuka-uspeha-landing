@@ -16,9 +16,9 @@ export function Programs() {
         {/* Акцент: продлёнка */}
         <Reveal>
           <div className="card overflow-hidden mb-8 grid md:grid-cols-[1.35fr_1fr]">
-            <div className="p-8 sm:p-10">
+            <div className="p-6 sm:p-10">
               <span className="eyebrow !bg-coral/10 !text-coral">🔥 {site.promo.title}</span>
-              <h3 className="mt-3 font-display font-bold text-2xl sm:text-3xl text-ink">
+              <h3 className="mt-3 font-display font-bold text-xl sm:text-3xl text-ink">
                 {prodlenka.title} 🎒
               </h3>
               <p className="mt-3 text-ink-soft font-semibold text-lg">{prodlenka.lead}</p>
@@ -27,9 +27,9 @@ export function Programs() {
                   <li key={i}>{i}</li>
                 ))}
               </ul>
-              <div className="mt-7 flex flex-wrap gap-3 items-center">
+              <div className="mt-7 flex flex-col sm:flex-row flex-wrap gap-3 sm:items-center">
                 <a href="#contacts" className="btn btn-primary">Забронировать место</a>
-                <a href={`tel:${site.phoneHref}`} className="text-sm font-bold text-brand hover:underline">
+                <a href={`tel:${site.phoneHref}`} className="inline-block py-2 text-sm font-bold text-brand hover:underline">
                   или позвоните {site.phone}
                 </a>
               </div>
@@ -54,9 +54,9 @@ export function Programs() {
             <div className="pointer-events-none absolute -top-24 -right-24 w-80 h-80 rounded-full bg-teal/30 blur-3xl" />
             <div className="pointer-events-none absolute -bottom-32 left-1/4 w-80 h-80 rounded-full bg-brand/40 blur-3xl" />
 
-            <div className="relative p-8 sm:p-10">
+            <div className="relative p-6 sm:p-10">
               <span className="eyebrow !bg-white/10 !text-white">🛡️ {academy.audience}</span>
-              <h3 className="mt-3 font-display font-bold text-2xl sm:text-3xl">
+              <h3 className="mt-3 font-display font-bold text-xl sm:text-3xl break-words">
                 Академия <span className="text-coral">кибербезопасности</span>{" "}
                 <span className="text-coral">{academy.name.split(" ")[0]}</span>{" "}
                 <span className="text-white">{academy.name.split(" ").slice(1).join(" ")}</span>
@@ -70,7 +70,7 @@ export function Programs() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-7 flex flex-wrap gap-3 items-center">
+              <div className="mt-7 flex flex-col sm:flex-row flex-wrap gap-3 sm:items-center">
                 <a href={academy.url} target="_blank" rel="noopener noreferrer" className="btn btn-accent">
                   Перейти на сайт Академии ↗
                 </a>
@@ -78,7 +78,7 @@ export function Programs() {
               </div>
             </div>
 
-            <div className="relative p-8 sm:p-10 md:border-l border-white/10 bg-white/[0.04] flex flex-col justify-center">
+            <div className="relative p-6 sm:p-10 md:border-l border-white/10 bg-white/[0.04] flex flex-col justify-center">
               <div className="font-mono text-xs text-teal/80 mb-3">student@zeroday:~$ первое занятие</div>
               <div className="flex flex-wrap gap-2">
                 {academy.stack.map((t) => (

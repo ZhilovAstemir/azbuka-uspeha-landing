@@ -13,9 +13,9 @@ export function Gallery() {
           title="Как проходят занятия"
           sub="Светлые кабинеты, игровая зона, шахматы, письмо и нейроупражнения — кадры с реальных занятий в «Азбуке успеха»."
         />
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5 [grid-auto-rows:180px] sm:[grid-auto-rows:240px]">
+        <div className="grid grid-cols-1 min-[400px]:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5 [grid-auto-rows:200px] sm:[grid-auto-rows:240px]">
           {gallery.map((g, i) => (
-            <Reveal key={g.src} delay={(i % 3) * 0.06} className={g.wide ? "col-span-2" : ""}>
+            <Reveal key={g.src} delay={(i % 3) * 0.06} className={g.wide ? "min-[400px]:col-span-2" : ""}>
               <figure className="group relative w-full h-full rounded-3xl overflow-hidden shadow-[var(--shadow-soft)]">
                 <Image
                   src={g.src}

@@ -40,7 +40,7 @@ export function Header() {
           solid ? "bg-white shadow-[0_8px_30px_-12px_rgba(43,51,80,0.2)]" : "bg-transparent"
         }`}
       >
-        <div className="container-x flex items-center justify-between h-[68px]">
+        <div className="container-x flex items-center justify-between gap-2 h-[68px] min-w-0">
           <Logo />
 
           <nav className="hidden lg:flex items-center gap-7" aria-label="Основная навигация">
@@ -57,7 +57,7 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <a href={`tel:${site.phoneHref}`} className="hidden md:inline font-extrabold text-ink hover:text-brand transition-colors">
               {site.phone}
             </a>
@@ -66,7 +66,7 @@ export function Header() {
             </a>
 
             <button
-              className="lg:hidden relative w-11 h-11 rounded-full bg-white shadow-[var(--shadow-soft)] grid place-items-center"
+              className="lg:hidden relative w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white shadow-[var(--shadow-soft)] grid place-items-center shrink-0"
               aria-label={open ? "Закрыть меню" : "Открыть меню"}
               aria-expanded={open}
               aria-controls="mobile-menu"

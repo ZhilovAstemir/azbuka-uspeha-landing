@@ -14,11 +14,12 @@ export function FloatingCta() {
   return (
     <a
       href="/#contacts"
-      className={`fixed z-40 bottom-5 right-5 btn btn-primary shadow-[var(--shadow-brand)] transition-all duration-300 ${
+      aria-label="Записаться"
+      className={`fixed z-40 bottom-4 right-4 sm:bottom-5 sm:right-5 btn btn-primary !px-4 sm:!px-6 shadow-[var(--shadow-brand)] transition-all duration-300 ${
         show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
       }`}
     >
-      🎒 Записаться
+      🎒<span className="hidden sm:inline"> Записаться</span>
     </a>
   );
 }

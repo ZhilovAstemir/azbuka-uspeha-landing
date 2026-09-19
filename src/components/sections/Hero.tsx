@@ -28,28 +28,28 @@ export function Hero() {
             и нейроупражнения — очно, в комфортной и безопасной атмосфере.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
             <a href="#contacts" className="btn btn-primary btn-lg">Записаться на продлёнку</a>
             <a href="#programs" className="btn btn-ghost btn-lg">Все направления</a>
           </div>
 
-          <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-4">
+          <ul className="mt-10 grid grid-cols-3 gap-x-3 gap-y-4 sm:flex sm:flex-wrap sm:gap-x-8">
             {facts.map((f, i) => (
               <li key={f.label} className="leading-tight">
-                <span className={`block font-display font-bold text-3xl ${["text-coral", "text-brand", "text-teal"][i]}`}>{f.value}</span>
-                <span className="text-sm font-semibold text-ink-soft">{f.label}</span>
+                <span className={`block font-display font-bold text-2xl sm:text-3xl ${["text-coral", "text-brand", "text-teal"][i]}`}>{f.value}</span>
+                <span className="text-xs sm:text-sm font-semibold text-ink-soft">{f.label}</span>
               </li>
             ))}
           </ul>
 
           <p className="mt-6 text-sm font-semibold text-ink-soft">
             📍 {site.address} ·{" "}
-            <a href={`tel:${site.phoneHref}`} className="text-brand hover:underline whitespace-nowrap">{site.phone}</a>
+            <a href={`tel:${site.phoneHref}`} className="inline-block py-1 text-brand hover:underline whitespace-nowrap">{site.phone}</a>
           </p>
         </div>
 
         {/* Правая колонка — живая фото-композиция */}
-        <div className="relative mx-auto w-full max-w-[420px] lg:max-w-[560px] aspect-square">
+        <div className="relative mx-auto w-full max-w-[420px] lg:max-w-[560px] aspect-square mt-6 sm:mt-0">
           <HeroVisual />
         </div>
       </div>

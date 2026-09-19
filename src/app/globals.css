@@ -100,8 +100,12 @@ body {
     border-radius: 999px;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    white-space: nowrap;
+    white-space: normal;
+    max-width: 100%;
     text-align: center;
+  }
+  @media (min-width: 640px) {
+    .btn { white-space: nowrap; }
   }
   .btn:active {
     transform: translateY(1px) scale(0.99);
@@ -132,8 +136,11 @@ body {
     transform: translateY(-2px);
   }
   .btn-lg {
-    padding: 18px 32px;
-    font-size: 1.05rem;
+    padding: 16px 22px;
+    font-size: 1rem;
+  }
+  @media (min-width: 640px) {
+    .btn-lg { padding: 18px 32px; font-size: 1.05rem; }
   }
   .btn-sm {
     padding: 11px 20px;

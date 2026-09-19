@@ -32,7 +32,7 @@ export function Teachers() {
           <Reveal delay={0.1}>
             <a
               href="#contacts"
-              className="card h-full p-8 flex flex-col justify-center items-center text-center transition-transform hover:-translate-y-1"
+              className="card h-full p-6 sm:p-8 flex flex-col justify-center items-center text-center transition-transform hover:-translate-y-1"
               style={{ background: "linear-gradient(135deg,var(--color-brand),var(--color-sky))" }}
             >
               <span className="text-6xl mb-4">👋</span>
